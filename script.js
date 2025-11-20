@@ -230,7 +230,7 @@ const observer = new IntersectionObserver(
     { threshold: 0.18 }
 );
 
-// === MOBILE MENU LOGIC (ADDED) ===
+// === MOBILE MENU LOGIC ===
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
@@ -251,4 +251,13 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
             observer.observe(el);
         });
+
+    // Active Link Highlighter
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(link => {
+        if (link.getAttribute('href') === currentPath.split('/').pop()) {
+            link.classList.add('active-highlight');
+        }
+    });
 });
