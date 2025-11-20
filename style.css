@@ -1,4 +1,4 @@
-/* TACITUS.NARRATIVE :: CINEMATIC STATIC SITE */
+/* TACITUS.NARRATIVE :: CINEMATIC STATIC SITE - COMPLETE */
 
 :root {
     --bg-deep: #020308;
@@ -50,7 +50,7 @@ nav.glass-panel {
     color: var(--text-muted); text-decoration: none; text-transform: uppercase;
     letter-spacing: 0.14em; font-size: 0.72rem; transition: color 0.25s ease;
 }
-.nav-links a:hover { color: var(--neon-cyan); transform: translateY(-1px); }
+.nav-links a:hover, .nav-links a.active-highlight { color: var(--neon-cyan); transform: translateY(-1px); }
 
 .btn-whitepaper {
     border: 1px solid rgba(255,255,255,0.3); padding: 6px 12px; border-radius: 4px;
@@ -62,6 +62,12 @@ nav.glass-panel {
     padding: 6px 18px; border-radius: 999px; border: 1px solid var(--neon-cyan);
     color: var(--neon-cyan) !important; box-shadow: 0 0 18px rgba(0, 243, 255, 0.45);
 }
+.btn-ghost {
+    border: 1px solid var(--glass-border); padding: 10px 25px; border-radius: 50px;
+    color: var(--text-muted); text-decoration: none; display: inline-block;
+    transition: 0.3s;
+}
+.btn-ghost:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
 
 /* HAMBURGER MENU */
 .hamburger { display: none; cursor: pointer; }
@@ -192,61 +198,4 @@ nav.glass-panel {
 }
 .card-cyber:hover { transform: translateY(-6px); border-color: var(--neon-cyan); }
 .card-cyber h4 { font-family: var(--font-mono); font-size: 0.98rem; margin-bottom: 0.5rem; color: #fff; }
-.card-cyber p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
-.card-cyber.small { padding: 1.4rem 1.4rem 1.2rem; }
-
-/* Use Case Nodes Visuals */
-.case-vis { display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
-.dot-fact { width: 10px; height: 10px; background: var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 10px var(--neon-cyan); }
-.dot-narrative { width: 10px; height: 10px; background: var(--neon-purple); border-radius: 50%; box-shadow: 0 0 10px var(--neon-purple); }
-.dot-shared { width: 12px; height: 12px; background: var(--neon-amber); border-radius: 50%; box-shadow: 0 0 10px var(--neon-amber); }
-.line-vis { width: 40px; height: 1px; background: rgba(255,255,255,0.2); margin: 0 8px; }
-.case-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; margin-top: 10px; }
-
-/* PRICING */
-.pricing-grid { margin-top: 2rem; }
-.pricing-card { text-align: center; }
-.p-header { font-weight: bold; color: #fff; margin-bottom: 0.5rem; }
-.p-price { font-size: 1.8rem; font-family: var(--font-mono); color: var(--neon-cyan); margin-bottom: 1.5rem; }
-.p-unit { font-size: 0.9rem; color: var(--text-muted); }
-.pricing-card.featured { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 243, 255, 0.15); }
-.terminal-list { list-style: none; text-align: left; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-.terminal-list li { margin-bottom: 0.5rem; }
-.small { font-size: 0.75rem; padding: 5px 15px; display: inline-block; }
-
-/* TEAM */
-.team-member { border-left: 2px solid var(--neon-purple); padding-left: 1.5rem; }
-.team-role { font-family: var(--font-mono); color: var(--accent); font-size: 0.7rem; margin-bottom: 5px; }
-.team-bio { font-size: 0.85rem; color: var(--text-muted); margin-top: 8px; }
-
-/* FOOTER */
-footer {
-    padding: 72px 6% 40px; background: radial-gradient(circle at top, rgba(15,23,42,0.85), #020617 65%);
-    border-top: 1px solid rgba(15, 23, 42, 0.9); font-family: var(--font-mono);
-}
-.terminal-footer { max-width: 640px; font-size: 0.83rem; color: var(--text-muted); }
-.status-ok { color: #22c55e; }
-.cmd-link { display: inline-block; margin-top: 0.6rem; color: var(--neon-cyan); text-decoration: none; font-size: 0.95rem; }
-.footer-link { color: var(--neon-amber); text-decoration: none; }
-
-/* RESPONSIVE */
-@media (max-width: 960px) {
-    .hero-grid { grid-template-columns: minmax(0, 1fr); }
-    .hero { padding-top: 100px; }
-}
-
-@media (max-width: 768px) {
-    nav.glass-panel { padding-inline: 5%; }
-    .nav-links {
-        position: fixed; top: 60px; left: 0; width: 100%;
-        flex-direction: column; background: #020308; padding: 2rem;
-        display: none; border-bottom: 1px solid var(--glass-border);
-    }
-    .nav-links.active { display: flex; }
-    .hamburger { display: block; }
-    
-    .hero { padding-inline: 5%; }
-    .content-section, footer { padding-inline: 5%; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; display: grid; }
-    .glitch-text { font-size: 2.5rem; }
-}
+.card-cyber p { font-size: 0.9rem; color: var(--text-muted); line-
