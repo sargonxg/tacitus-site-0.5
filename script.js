@@ -1,149 +1,236 @@
 /**
- * TACITUS ENGINE v0.5
- * Particle Background, Mobile Nav, and Interactive Simulation
+ * TACITUS.NARRATIVE VISUAL ENGINE
+ * Vanilla JS + Canvas implementation of the "Tangle to Crystal" metaphor.
+ * - Top: high entropy, loose connections.
+ * - Scroll down: structure coefficient increases; swarm settles into a graph.
  */
 
-// --- 1. MOBILE NAVIGATION ---
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+const canvas = document.getElementById('neural-canvas');
+const ctx = canvas.getContext('2d');
 
-if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-}
+let width = window.innerWidth;
+let height = window.innerHeight;
+canvas.width = width;
+canvas.height = height;
 
-// --- 2. INTERACTIVE SIMULATION (Conflict Nodes) ---
-const nodeData = {
-    1: {
-        id: "EMAIL_THREAD_049",
-        text: "\"I cannot believe Marketing is delaying the launch again. This is incompetence.\"",
-        interest: "FEAR: Missed quarterly targets will impact bonus structure.",
-        strategy: "Reframing: Focus on shared timeline risks rather than blame."
-    },
-    2: {
-        id: "SLACK_DM_112",
-        text: "\"We need to strictly follow the new compliance protocols, no exceptions.\"",
-        interest: "SAFETY: Legal liability protection is prioritized over speed.",
-        strategy: "Validation: Acknowledge risk, propose 'fast-track' approval workflow."
-    },
-    3: {
-        id: "MEMO_RE_MERGER",
-        text: "\"The new org chart doesn't make sense for my team's workflow.\"",
-        interest: "STATUS: Loss of autonomy and direct report access.",
-        strategy: "Inquiry: Ask 'What specific workflow breaks?' to ground the status anxiety."
-    }
+const config = {
+    particleCount: 140,
+    baseSpeed: 0.28,
+    connectionDist: 120,
+    mouseInfluence: 140,
+    colorFact: '0, 243, 255',      // Neon Cyan
+    colorNarrative: '188, 19, 254', // Neon Purple
+    colorShared: '255, 179, 71'     // Amber
 };
 
-function showNodeDetails(id) {
-    const data = nodeData[id];
-    if (!data) return;
+let particles = [];
+let structureLevel = 0; // 0 = pure tangle, 1 = full crystal
+let mouse = { x: null, y: null };
 
-    const idEl = document.getElementById('sp-id');
-    const textEl = document.getElementById('sp-text');
-    const interestEl = document.getElementById('sp-interest');
-    const strategyEl = document.getElementById('sp-strategy');
-    const panel = document.getElementById('sim-panel');
+class Particle {
+    constructor(index, total) {
+        this.index = index;
+        this.total = total;
+        this.resetPosition();
+        this.assignType();
+        this.computeCrystalTarget();
+    }
 
-    if (!idEl || !textEl || !interestEl || !strategyEl || !panel) return;
+    resetPosition() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * config.baseSpeed * 3;
+        this.vy = (Math.random() - 0.5) * config.baseSpeed * 3;
+        this.size = 1 + Math.random() * 1.7;
+    }
 
-    idEl.innerText = data.id;
-    textEl.innerText = data.text;
-    interestEl.innerText = data.interest;
-    strategyEl.innerText = data.strategy;
+    assignType() {
+        const r = Math.random();
+        if (r < 0.65) {
+            this.kind = 'fact';
+        } else if (r < 0.9) {
+            this.kind = 'narrative';
+        } else {
+            this.kind = 'shared';
+            this.size *= 1.3;
+        }
+    }
 
-    // Flash effect
-    panel.style.borderColor = '#ffffff';
-    setTimeout(() => {
-        panel.style.borderColor = 'var(--neon-cyan)';
-    }, 180);
+    computeCrystalTarget() {
+        // Lay particles out in a subtle columnar crystal near center
+        const cols = Math.ceil(Math.sqrt(this.total));
+        const rows = Math.ceil(this.total / cols);
+        const col = this.index % cols;
+        const row = Math.floor(this.index / cols);
+
+        const marginX = width * 0.18;
+        const marginY = height * 0.18;
+        const crystalWidth = width - marginX * 2;
+        const crystalHeight = height - marginY * 2;
+
+        const stepX = cols > 1 ? crystalWidth / (cols - 1) : 0;
+        const stepY = rows > 1 ? crystalHeight / (rows - 1) : 0;
+
+        this.tx = marginX + col * stepX;
+        this.ty = marginY + row * stepY;
+    }
+
+    update() {
+        // Random drift (entropy)
+        this.x += this.vx * (1.4 - 0.6 * structureLevel);
+        this.y += this.vy * (1.4 - 0.6 * structureLevel);
+
+        // Soft bounds
+        if (this.x < -40 || this.x > width + 40 || this.y < -40 || this.y > height + 40) {
+            this.resetPosition();
+            this.computeCrystalTarget();
+        }
+
+        // Attraction towards crystal target as structure increases
+        if (structureLevel > 0.05) {
+            const pull = 0.015 + structureLevel * 0.035;
+            this.x += (this.tx - this.x) * pull;
+            this.y += (this.ty - this.y) * pull;
+        }
+
+        // Gentle gravitation toward mouse (analyst pointer)
+        if (mouse.x !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < config.mouseInfluence) {
+                const mPull = 0.02;
+                this.x += dx * mPull * (1 - structureLevel * 0.5);
+                this.y += dy * mPull * (1 - structureLevel * 0.5);
+            }
+        }
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+        let color = config.colorFact;
+        let alpha = 0.55;
+
+        if (this.kind === 'narrative') {
+            color = config.colorNarrative;
+            alpha = 0.7;
+        } else if (this.kind === 'shared') {
+            color = config.colorShared;
+            alpha = 0.9;
+        }
+
+        ctx.fillStyle = `rgba(${color}, ${alpha})`;
+        ctx.fill();
+    }
 }
 
-// Expose function to global scope for inline onclick handlers
-window.showNodeDetails = showNodeDetails;
+function initParticles() {
+    particles = [];
+    for (let i = 0; i < config.particleCount; i++) {
+        particles.push(new Particle(i, config.particleCount));
+    }
+}
 
-// --- 3. CANVAS BACKGROUND (Particle System) ---
-const canvas = document.getElementById('neural-canvas');
-
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
+    particles.forEach(p => p.computeCrystalTarget());
+}
 
-    const particles = [];
-    const PARTICLE_COUNT = 80; // reduced for perf
+window.addEventListener('resize', resize);
 
-    class Particle {
-        constructor() {
-            this.reset();
-        }
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
 
-        reset() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.size = Math.random() * 1.8 + 0.4;
-        }
+window.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+});
 
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
+// Map scroll position to structure level
+function updateStructureLevel() {
+    const scrollTop = window.scrollY || window.pageYOffset;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) {
+        structureLevel = 0;
+        return;
+    }
+    const ratio = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+    structureLevel = ratio;
+}
 
-            if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-                this.reset();
+window.addEventListener('scroll', updateStructureLevel);
+
+function drawConnections() {
+    const baseDist = config.connectionDist;
+    for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
+        for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            // As structure increases, we privilege closer, tighter edges
+            const effectiveDist = baseDist * (1.1 - 0.5 * structureLevel);
+            if (dist < effectiveDist) {
+                let alpha = (1 - dist / effectiveDist) * (0.55 + 0.4 * structureLevel);
+                alpha = Math.max(0, Math.min(alpha, 1));
+
+                ctx.beginPath();
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.strokeStyle = `rgba(${config.colorFact}, ${alpha})`;
+                ctx.lineWidth = 0.4 + structureLevel * 0.6;
+                ctx.stroke();
             }
         }
-
-        draw() {
-            ctx.fillStyle = 'rgba(0, 243, 255, 0.3)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
     }
+}
 
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
-    }
+function animate() {
+    ctx.clearRect(0, 0, width, height);
 
-    function render() {
-        ctx.clearRect(0, 0, width, height);
+    // Subtle gradient wash behind everything for cinematic feel
+    const gradient = ctx.createRadialGradient(
+        width * 0.5, height * 0.1, 0,
+        width * 0.5, height * 0.5, height * 0.9
+    );
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0.2)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.9)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
 
-        // Lines
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 110) {
-                    ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 - dist / 1100})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
 
-        // Nodes
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-        }
+    drawConnections();
 
-        requestAnimationFrame(render);
-    }
+    requestAnimationFrame(animate);
+}
 
-    render();
+// === NEW: MOBILE NAVIGATION TOGGLE ===
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
 
-    window.addEventListener('resize', () => {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
+if(hamburger) {
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
     });
 }
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    initParticles();
+    updateStructureLevel();
+    animate();
+});
