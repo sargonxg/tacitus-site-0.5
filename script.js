@@ -1,8 +1,8 @@
 /**
  * TACITUS.NARRATIVE VISUAL ENGINE
  * Vanilla JS + Canvas implementation of the "Tangle to Crystal" metaphor.
- * - Top: high entropy, loose connections.
- * - Scroll down: structure coefficient increases; swarm settles into a graph.
+ * - At the top of the page: high entropy, loose connections.
+ * - As the user scrolls: structure coefficient increases; swarm settles into a graph.
  */
 
 const canvas = document.getElementById('neural-canvas');
@@ -18,13 +18,13 @@ const config = {
     baseSpeed: 0.28,
     connectionDist: 120,
     mouseInfluence: 140,
-    colorFact: '0, 243, 255',      // Neon Cyan
-    colorNarrative: '188, 19, 254', // Neon Purple
-    colorShared: '255, 179, 71'     // Amber
+    colorFact: '0, 243, 255',
+    colorNarrative: '188, 19, 254',
+    colorShared: '255, 179, 71'
 };
 
 let particles = [];
-let structureLevel = 0; // 0 = pure tangle, 1 = full crystal
+let structureLevel = 0; // 0 = pure tangle, 1 = almost full crystal
 let mouse = { x: null, y: null };
 
 class Particle {
@@ -217,20 +217,38 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-// === NEW: MOBILE NAVIGATION TOGGLE ===
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+// Intersection Observer for card reveal
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    },
+    { threshold: 0.18 }
+);
 
-if(hamburger) {
+// === MOBILE MENU LOGIC (ADDED) ===
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+if (hamburger) {
     hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
         navLinks.classList.toggle("active");
     });
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     updateStructureLevel();
     animate();
+
+    document
+        .querySelectorAll('.glass-card, .card-cyber')
+        .forEach(el => {
+            el.style.transition = 'opacity 0.9s ease-out, transform 0.9s ease-out';
+            observer.observe(el);
+        });
 });
