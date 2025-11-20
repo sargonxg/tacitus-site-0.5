@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tacitus | The Architecture of Narrative Intelligence</title>
+    <title>Tacitus | Conflict Intelligence</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
 
     <nav class="glass-panel">
         <div class="logo">TACITUS<span class="logo-mark">◳</span><span class="highlight">_</span></div>
-
+        
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -20,16 +20,15 @@
         </div>
 
         <div class="nav-links" id="nav-links">
-            <a href="index.html#deficit">Resolution Deficit</a>
-            <a href="index.html#demo">Live Simulation</a>
-            <a href="research.html">Research &amp; Lab</a>
-            <a href="team.html">The Team</a>
-            <a href="deployment.html">Deployment</a>
-            <a href="https://concordiadiscors.org" target="_blank" class="ext-link">Concordia Discors ↗</a>
-            <div class="nav-actions">
-                <a href="#" class="btn-whitepaper">White Paper</a>
-                <a href="#pricing" class="btn-glow">Initialize</a>
-            </div>
+            <a href="#deficit">The Deficit</a>
+            <a href="#cases">Use Cases</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#team">Team</a>
+            <a href="research.html">Lab & Papers</a>
+            
+            <a href="path/to/whitepaper.pdf" class="btn-whitepaper">White Paper</a>
+            
+            <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
         </div>
     </nav>
 
@@ -37,141 +36,195 @@
         <section class="hero" id="top">
             <div class="content-wrapper hero-grid">
                 <div class="hero-copy">
-                    <div class="badge">v0.5 · CONFLICT INTELLIGENCE ENGINE</div>
+                    <div class="badge">v0.4 · CONFLICT INTELLIGENCE & RESOLUTION TECHNOLOGIES</div>
+                    
                     <h1 class="glitch-text" data-text="CONFLICT IS INFORMATION">
                         CONFLICT IS INFORMATION
                     </h1>
+                    
                     <p class="subtitle">
                         Tacitus is an email‑native, multi‑agent analysis layer that turns the
-                        <span class="accent">Resolution Deficit</span> into a map of what is really happening.
-                        We ground high‑stakes decisions in structured evidence, removing the noise of polarization.
+                        <span class="accent">Resolution Deficit</span> into a map of what is really happening – 
+                        grounding high‑stakes decisions in structured evidence, narratives, and common ground.
                     </p>
+                    
+                    <div class="hero-tags">
+                        <span class="tag">email‑native</span>
+                        <span class="tag">multi‑agent</span>
+                        <span class="tag">RAG‑grounded</span>
+                        <span class="tag">human‑in‑loop</span>
+                    </div>
+                    
                     <div class="hero-actions">
-                        <a href="#pricing" class="btn-accent">Start Analysis Pipeline</a>
-                        <a href="https://concordiadiscors.org" target="_blank" class="btn-ghost">Visit Our Magazine</a>
+                        <a href="mailto:hello@tacitus.me?subject=Connect%20about%20Tacitus" class="btn-accent">
+                            Connect with us to explore Tacitus
+                        </a>
+                        
+                        <div class="associated-pub-box">
+                            <span class="pub-label">Associated Publication:</span>
+                            <a href="https://concordiadiscors.org" target="_blank" class="link-concordia">
+                                CONCORDIA DISCORS ↗
+                            </a>
+                            <span class="pub-desc">Journal on polarization & cultural conflict.</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="hero-panel">
                     <div class="panel-title">SYSTEM DIAGNOSTIC // LIVE</div>
                     <div class="panel-metric">
-                        <span class="metric-label">Entropy Level</span>
-                        <span class="metric-value">CRITICAL</span>
+                        <span class="metric-label">Resolution Deficit</span>
+                        <span class="metric-value">HIGH</span>
                     </div>
                     <div class="panel-metric">
-                        <span class="metric-label">Narrative Divergence</span>
-                        <span class="metric-value">94.2%</span>
+                        <span class="metric-label">Narrative Asymmetry</span>
+                        <span class="metric-value">SEVERE</span>
+                    </div>
+                    <div class="panel-metric">
+                        <span class="metric-label">Human Override</span>
+                        <span class="metric-value ok">ENFORCED</span>
                     </div>
                     <div class="panel-foot">
-                        <span>› Ingesting enterprise threads...</span><br>
-                        <span>› Resolving latent intent...</span>
+                        <span>› Fly through the tangle.</span><br>
+                        <span>› Scroll to crystallize graph.</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="demo" class="content-section">
-            <div class="content-wrapper">
-                <div class="section-label">1. INTERACTIVE DEMO</div>
-                <div class="glass-card wide">
-                    <h2>>> The Dual Asymmetry Engine</h2>
-                    <p>
-                        Conflict exists on two planes: <strong>Surface Claims</strong> (what is said) and <strong>Latent Interests</strong> (what is needed).
-                        Click the nodes below to see how Tacitus decouples them.
-                    </p>
+        <section id="deficit" class="content-section">
+            <div class="section-label">01. THE PROBLEM LAYER</div>
+            <div class="glass-card wide">
+                <h2>>> The Resolution Deficit</h2>
+                <p>
+                    From a systems perspective, the <span class="accent">Resolution Deficit</span> is the gap between the rate at which
+                    organisations generate conflict‑relevant information and the rate at which humans can parse, model, and act on it.
+                </p>
+            </div>
+        </section>
 
-                    <div class="simulation-container">
-                        <div class="sim-graph">
-                            <div class="sim-node node-1" onclick="showNodeDetails(1)"></div>
-                            <div class="sim-node node-2" onclick="showNodeDetails(2)"></div>
-                            <div class="sim-node node-3" onclick="showNodeDetails(3)"></div>
-                            <div class="sim-connection c1"></div>
-                            <div class="sim-connection c2"></div>
-                        </div>
-
-                        <div class="sim-panel" id="sim-panel">
-                            <div class="sim-header">
-                                <span class="sim-id">NODE_ID: <span id="sp-id">SELECT_NODE</span></span>
-                                <span class="sim-status">ANALYZED</span>
-                            </div>
-                            <div class="sim-body">
-                                <div class="sim-row">
-                                    <h5>SURFACE TEXT (Email)</h5>
-                                    <p id="sp-text" class="typing-effect">Select a node on the left...</p>
-                                </div>
-                                <div class="sim-row highlight">
-                                    <h5>LATENT INTEREST (AI Decoded)</h5>
-                                    <p id="sp-interest">Waiting for input...</p>
-                                </div>
-                                <div class="sim-row">
-                                    <h5>MEDIATION STRATEGY</h5>
-                                    <p id="sp-strategy">--</p>
-                                </div>
-                            </div>
-                        </div>
+        <section id="cases" class="content-section">
+            <div class="section-label">02. DEPLOYMENT SCENARIOS</div>
+            <h2 class="section-heading" style="margin-bottom: 2rem;">>> Where Tacitus Lands</h2>
+            
+            <div class="grid-3">
+                <div class="card-cyber">
+                    <div class="case-vis">
+                        <span class="dot-fact"></span><span class="line-vis"></span><span class="dot-narrative"></span>
                     </div>
+                    <h4>Founder Disputes</h4>
+                    <p class="case-desc">
+                        <strong>Conflict:</strong> Equity split disagreement after a pivot.
+                        <br><br>
+                        <strong>Tacitus:</strong> Decouples "Surface Arguments" (work hours) from "Latent Fear" (risk devaluation). Produces a committed timeline of contributions to ground the negotiation.
+                    </p>
+                </div>
+
+                <div class="card-cyber">
+                    <div class="case-vis">
+                        <span class="dot-fact"></span><span class="line-vis"></span><span class="dot-shared"></span>
+                    </div>
+                    <h4>M&A Integration</h4>
+                    <p class="case-desc">
+                        <strong>Conflict:</strong> Acquired team resisting new compliance tools.
+                        <br><br>
+                        <strong>Tacitus:</strong> Maps the friction not as "laziness" but as a clash of values (Speed vs. Safety). Suggests "Sandboxed Compliance" as a bridge policy.
+                    </p>
+                </div>
+
+                <div class="card-cyber">
+                    <div class="case-vis">
+                        <span class="dot-narrative"></span><span class="line-vis"></span><span class="dot-narrative"></span>
+                    </div>
+                    <h4>Civic Mediation</h4>
+                    <p class="case-desc">
+                        <strong>Conflict:</strong> Urban development vs. Resident heritage.
+                        <br><br>
+                        <strong>Tacitus:</strong> Ingests 2,000+ town hall emails. Identifies that 80% of traffic complaints are actually proxies for "Loss of Identity," reframing the agenda.
+                    </p>
                 </div>
             </div>
         </section>
 
         <section id="pricing" class="content-section">
-            <div class="content-wrapper">
-                <div class="section-label">2. COMPUTE STRUCTURE</div>
-                <div class="glass-card wide">
-                    <h2>>> Deep Context Pricing</h2>
-                    <p>
-                        Tacitus is not a chat bot. It is a deep-research engine. We charge based on the 
-                        complexity of the conflict graph, not the user count.
-                    </p>
+            <div class="section-label">03. COMPUTE STRUCTURE</div>
+            <div class="glass-card wide">
+                <h2>>> Deep Research Pricing</h2>
+                <p>
+                    Tacitus is not a chatbot; it is a compute-heavy research engine. We prioritize depth over speed. 
+                    Email is frictionless; knowledge extraction is not.
+                </p>
 
-                    <div class="pricing-grid">
-                        <div class="card-cyber pricing-card">
-                            <div class="p-header">PILOT</div>
-                            <div class="p-price">$10 <span class="p-unit">/ 100 emails</span></div>
-                            <ul class="terminal-list">
-                                <li>&gt; Full Entity Extraction</li>
-                                <li>&gt; Sentiment Timeline</li>
-                                <li>&gt; Basic Conflict Graph</li>
-                                <li>&gt; Human-in-loop: Optional</li>
-                            </ul>
-                            <a href="mailto:deploy@tacitus.me" class="btn-glow small">Initialize</a>
-                        </div>
+                <div class="grid-3 pricing-grid">
+                    <div class="card-cyber pricing-card">
+                        <div class="p-header">PILOT / AUDIT</div>
+                        <div class="p-price">$10 <span class="p-unit">/ 100 emails</span></div>
+                        <ul class="terminal-list">
+                            <li>&gt; Entity Extraction</li>
+                            <li>&gt; Sentiment Timeline</li>
+                            <li>&gt; Basic Conflict Graph</li>
+                            <li>&gt; PDF Briefing</li>
+                        </ul>
+                        <a href="mailto:deploy@tacitus.me?subject=Pilot" class="btn-glow small">Initialize</a>
+                    </div>
 
-                        <div class="card-cyber pricing-card featured">
-                            <div class="p-header">ENTERPRISE</div>
-                            <div class="p-price">CUSTOM</div>
-                            <ul class="terminal-list">
-                                <li>&gt; Unlimited Ingestion</li>
-                                <li>&gt; On-Premise Deployment (Local LLM)</li>
-                                <li>&gt; Dedicated Narrative Analyst</li>
-                                <li>&gt; Board-Level Reporting</li>
-                            </ul>
-                            <a href="mailto:deploy@tacitus.me" class="btn-glow small">Contact Sales</a>
-                        </div>
+                    <div class="card-cyber pricing-card featured">
+                        <div class="p-header">ENTERPRISE</div>
+                        <div class="p-price">CUSTOM</div>
+                        <ul class="terminal-list">
+                            <li>&gt; Unlimited Ingestion</li>
+                            <li>&gt; <strong>On-Premise (Local LLM)</strong></li>
+                            <li>&gt; Dedicated Human Analyst</li>
+                            <li>&gt; Board-Level Reporting</li>
+                        </ul>
+                        <a href="mailto:sales@tacitus.me?subject=Enterprise" class="btn-glow small">Contact Sales</a>
+                    </div>
 
-                        <div class="card-cyber pricing-card">
-                            <div class="p-header">NGO / RESEARCH</div>
-                            <div class="p-price">GRANT</div>
-                            <ul class="terminal-list">
-                                <li>&gt; For Peacebuilding &amp; Civil Society</li>
-                                <li>&gt; Subsidized by Tacitus Lab</li>
-                                <li>&gt; Full "Habermas" Toolset</li>
-                                <li>&gt; Data Privacy Guarantee</li>
-                            </ul>
-                            <a href="mailto:research@tacitus.me" class="btn-glow small">Apply</a>
-                        </div>
+                    <div class="card-cyber pricing-card">
+                        <div class="p-header">ACADEMIC / NGO</div>
+                        <div class="p-price">GRANT</div>
+                        <ul class="terminal-list">
+                            <li>&gt; Peacebuilding & NGOs</li>
+                            <li>&gt; Subsidized by Tacitus Lab</li>
+                            <li>&gt; Habermas Machine Tools</li>
+                            <li>&gt; Privacy Guarantee</li>
+                        </ul>
+                        <a href="mailto:research@tacitus.me?subject=Grant" class="btn-glow small">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="content-section">
+            <div class="section-label">04. PERSONNEL</div>
+            <div class="glass-card wide">
+                <h2>>> The Team</h2>
+                <p>
+                    Building at the intersection of Organizational Psychology, Game Theory, and Computer Science.
+                </p>
+                <div class="grid-2 team-grid">
+                    <div class="team-member">
+                        <div class="team-role">FOUNDER & CEO</div>
+                        <h4>Sargon X.G.</h4>
+                        <p class="team-bio">Specialist in Narrative Architecture and Conflict Theory. Leading the development of email-native resolution systems.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-role">CHIEF TECHNOLOGY OFFICER</div>
+                        <h4>[Name Placeholder]</h4>
+                        <p class="team-bio">Expert in Multi-Agent Systems and RAG pipelines. Focus on privacy-preserving retrieval and graph construction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer id="access">
-            <div class="content-wrapper">
-                <div class="terminal-footer">
-                    <p>&gt; system_status: <span class="status-ok">OPERATIONAL</span></p>
-                    <p>&gt; global_index: <span class="status-ok">LIVE</span></p>
-                    <br>
-                    <a href="mailto:deploy@tacitus.me" class="cmd-link">root@tacitus:~$ initiate_sequence</a>
-                </div>
+            <div class="terminal-footer">
+                <p>&gt; system_status: <span class="status-ok">OPERATIONAL</span></p>
+                <p>&gt; associated_pub: <a href="https://concordiadiscors.org" target="_blank" class="footer-link">CONCORDIA DISCORS</a></p>
+                <br>
+                <a href="mailto:deploy@tacitus.me?subject=Tacitus%20Deployment" class="cmd-link">
+                    root@tacitus:~$ initiate_deployment_sequence
+                </a>
             </div>
         </footer>
     </main>
