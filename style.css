@@ -341,3 +341,54 @@ footer {
     .grid-2, .grid-3 { grid-template-columns: 1fr; display: grid; }
     .glitch-text { font-size: 2.5rem; }
 }
+/* --- PRISM LAB STYLES --- */
+
+/* CYBER SLIDER */
+.cyber-slider {
+    -webkit-appearance: none; width: 100%; height: 4px;
+    background: rgba(255,255,255,0.1); border-radius: 2px; outline: none;
+    margin: 15px 0;
+}
+.cyber-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 16px; height: 16px;
+    background: var(--neon-cyan); border-radius: 50%; cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+.slider-labels {
+    display: flex; justify-content: space-between; font-family: var(--font-mono);
+    font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;
+}
+
+/* RADAR CHART MOCKUP */
+.radar-chart-container {
+    position: relative; width: 200px; height: 200px; margin: 20px auto;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    border-radius: 50%; border: 1px dashed rgba(255,255,255,0.1);
+}
+.radar-axis {
+    position: absolute; top: 50%; left: 50%; width: 100%; height: 1px;
+    background: rgba(255,255,255,0.1); transform-origin: center;
+}
+.axis-1 { transform: translate(-50%, -50%); }
+.axis-2 { transform: translate(-50%, -50%) rotate(90deg); }
+.radar-shape {
+    position: absolute; top: 50%; left: 50%; width: 120px; height: 120px;
+    background: rgba(188, 19, 254, 0.2); border: 2px solid var(--neon-purple);
+    transform: translate(-40%, -60%) rotate(45deg); /* Irregular shape simulation */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+.radar-label {
+    position: absolute; font-family: var(--font-mono); font-size: 0.65rem;
+    color: var(--text-muted);
+}
+.radar-label.top { top: 0; left: 50%; transform: translateX(-50%); }
+.radar-label.bottom { bottom: 0; left: 50%; transform: translateX(-50%); }
+.radar-label.left { top: 50%; left: 0; transform: translateY(-50%); }
+.radar-label.right { top: 50%; right: 0; transform: translateY(-50%); }
+
+/* TOPIC BUTTONS */
+.topic-selector { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-ghost.active {
+    border-color: var(--neon-cyan); color: var(--neon-cyan);
+    background: rgba(0, 243, 255, 0.1);
+}
