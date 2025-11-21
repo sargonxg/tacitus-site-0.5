@@ -20,23 +20,20 @@
         </div>
 
         <div class="nav-links" id="nav-links">
-            <a href="index.html">Home</a>
-            
-            <a href="platform.html" style="color: var(--neon-amber); border: 1px solid rgba(255, 179, 71, 0.3); padding: 4px 8px; border-radius: 4px;">Conflict Intel</a>
+            <a href="index.html" class="active-highlight">Home</a>
+            <a href="platform.html" style="color: var(--neon-amber);">Conflict Intel</a>
+            <a href="polarization.html" style="color: var(--neon-purple);">The Prism</a>
             
             <a href="#deficit">The Deficit</a>
             <a href="analysis.html">Deep Analysis</a>
             <a href="#pricing">Pricing</a>
-            <a href="research.html">Lab</a>
             <a href="deployment.html">Deployment</a>
             
-            <div class="nav-actions">
-                <a href="https://github.com/sargonxg/tacitus-site-0.5/blob/b15efc468b171a7a94e3be641ea434eacfa0c582/tacitus_protocol_ascii.pdf" class="btn-whitepaper">White Paper</a>
-            </div>
-            
+            <a href="https://github.com/sargonxg/tacitus-site-0.5" class="btn-whitepaper">White Paper</a>
             <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
         </div>
     </nav>
+
     <main>
         <section class="hero" id="top">
             <div class="content-wrapper hero-grid">
@@ -49,7 +46,7 @@
                     </h1>
                     
                     <p class="subtitle">
-                        Tacitus is a multi‑agent analysis layer that turns the
+                        Tacitus is an email‑native, multi‑agent analysis layer that turns the
                         <span class="accent">Resolution Deficit</span> into a map of what is really happening – 
                         grounding high‑stakes decisions in structured evidence and common ground.
                     </p>
@@ -58,9 +55,10 @@
                         <span class="tag">email‑native</span>
                         <span class="tag">multi‑agent</span>
                         <span class="tag">RAG‑grounded</span>
+                        <span class="tag">human‑in‑loop</span>
                     </div>
 
-                    <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 600px;">
                         
                         <div class="card-cyber small" style="padding: 1.2rem; border-top: 2px solid var(--neon-amber);">
                             <h3 style="font-family: var(--font-mono); color: #fff; font-size: 0.85rem; margin-bottom: 8px;">
@@ -82,17 +80,6 @@
                             <a href="polarization.html" class="link-concordia" style="color: var(--neon-purple);">ENTER LAB &rarr;</a>
                         </div>
 
-                    </div>
-                    </div>
-
-                    <div style="margin-top: 2.5rem; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 1.5rem;">
-                        <span class="tag" style="color: var(--neon-amber); border-color: var(--neon-amber);">NEW MODULE</span>
-                        <h3 style="font-family: var(--font-mono); color: #fff; font-size: 1rem; margin: 10px 0 5px;">CONCORDIA DISCORS // ENGINE</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; max-width: 95%; line-height: 1.6;">
-                            Multi-pipeline OSINT &amp; Policy RAG for deep conflict research.
-                            Generates automated <strong>Situation Reports</strong> and <strong>Stakeholder Recommendations</strong>.
-                        </p>
-                        <a href="platform.html" class="link-concordia">VIEW SYSTEM ARCHITECTURE &rarr;</a>
                     </div>
                     </div>
                 
@@ -146,47 +133,28 @@
         <section id="cases" class="content-section">
             <div class="section-label">02. DEPLOYMENT SCENARIOS</div>
             <h2 class="section-heading" style="margin-bottom: 2rem;">>> Where Tacitus Lands</h2>
-            
             <div class="grid-3">
                 <div class="card-cyber">
                     <div class="case-vis">
                         <span class="dot-fact"></span><span class="line-vis"></span><span class="dot-narrative"></span>
                     </div>
                     <h4>Founder Disputes</h4>
-                    <p class="case-desc">
-                        <strong>Conflict:</strong> Equity split disagreement after a pivot.
-                        <br><br>
-                        <strong>Tacitus:</strong> Decouples "Surface Arguments" (work hours) from "Latent Fear" (risk devaluation). Produces a committed timeline of contributions.
-                    </p>
+                    <p class="case-desc"><strong>Tacitus:</strong> Decouples "Surface Arguments" (work hours) from "Latent Fear" (risk devaluation).</p>
                 </div>
-
                 <div class="card-cyber">
                     <div class="case-vis">
                         <span class="dot-fact"></span><span class="line-vis"></span><span class="dot-shared"></span>
                     </div>
                     <h4>M&A Integration</h4>
-                    <p class="case-desc">
-                        <strong>Conflict:</strong> Acquired team resisting new compliance tools.
-                        <br><br>
-                        <strong>Tacitus:</strong> Maps the friction not as "laziness" but as a clash of values (Speed vs. Safety). Suggests "Sandboxed Compliance" as a bridge.
-                    </p>
+                    <p class="case-desc"><strong>Tacitus:</strong> Maps friction not as "laziness" but as a clash of values (Speed vs. Safety).</p>
                 </div>
-
                 <div class="card-cyber">
                     <div class="case-vis">
                         <span class="dot-narrative"></span><span class="line-vis"></span><span class="dot-narrative"></span>
                     </div>
                     <h4>Civic Mediation</h4>
-                    <p class="case-desc">
-                        <strong>Conflict:</strong> Urban development vs. Resident heritage.
-                        <br><br>
-                        <strong>Tacitus:</strong> Ingests 2,000+ town hall emails. Identifies that 80% of traffic complaints are proxies for "Loss of Identity," reframing the agenda.
-                    </p>
+                    <p class="case-desc"><strong>Tacitus:</strong> Ingests 2,000+ town hall emails. Identifies proxies for "Loss of Identity".</p>
                 </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="analysis.html" class="btn-ghost">View Full Analysis Logs &amp; Visuals ↗</a>
             </div>
         </section>
 
@@ -194,68 +162,21 @@
             <div class="section-label">03. COMPUTE STRUCTURE</div>
             <div class="glass-card wide">
                 <h2>>> Deep Research Pricing</h2>
-                <p>
-                    Tacitus is not a chatbot; it is a compute-heavy research engine. We prioritize depth over speed. 
-                    Email is frictionless; knowledge extraction is not.
-                </p>
-
                 <div class="grid-3 pricing-grid">
                     <div class="card-cyber pricing-card">
                         <div class="p-header">PILOT / AUDIT</div>
                         <div class="p-price">$10 <span class="p-unit">/ 100 emails</span></div>
-                        <ul class="terminal-list">
-                            <li>&gt; Entity Extraction</li>
-                            <li>&gt; Sentiment Timeline</li>
-                            <li>&gt; Basic Conflict Graph</li>
-                            <li>&gt; PDF Briefing</li>
-                        </ul>
                         <a href="mailto:deploy@tacitus.me?subject=Pilot" class="btn-glow small">Initialize</a>
                     </div>
-
                     <div class="card-cyber pricing-card featured">
                         <div class="p-header">ENTERPRISE</div>
                         <div class="p-price">CUSTOM</div>
-                        <ul class="terminal-list">
-                            <li>&gt; Unlimited Ingestion</li>
-                            <li>&gt; <strong>On-Premise (Local LLM)</strong></li>
-                            <li>&gt; Dedicated Human Analyst</li>
-                            <li>&gt; Board-Level Reporting</li>
-                        </ul>
                         <a href="mailto:sales@tacitus.me?subject=Enterprise" class="btn-glow small">Contact Sales</a>
                     </div>
-
                     <div class="card-cyber pricing-card">
                         <div class="p-header">ACADEMIC / NGO</div>
                         <div class="p-price">GRANT</div>
-                        <ul class="terminal-list">
-                            <li>&gt; Peacebuilding & NGOs</li>
-                            <li>&gt; Subsidized by Tacitus Lab</li>
-                            <li>&gt; Habermas Machine Tools</li>
-                            <li>&gt; Privacy Guarantee</li>
-                        </ul>
                         <a href="mailto:research@tacitus.me?subject=Grant" class="btn-glow small">Apply</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="team" class="content-section">
-            <div class="section-label">04. PERSONNEL</div>
-            <div class="glass-card wide">
-                <h2>>> The Team</h2>
-                <p>
-                    Building at the intersection of Organizational Psychology, Game Theory, and Computer Science.
-                </p>
-                <div class="grid-2 team-grid">
-                    <div class="team-member">
-                        <div class="team-role">FOUNDER & CEO</div>
-                        <h4>Sargon X.G.</h4>
-                        <p class="team-bio">Specialist in Narrative Architecture and Conflict Theory. Leading the development of email-native resolution systems.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-role">CHIEF TECHNOLOGY OFFICER</div>
-                        <h4>[Name Placeholder]</h4>
-                        <p class="team-bio">Expert in Multi-Agent Systems and RAG pipelines. Focus on privacy-preserving retrieval and graph construction.</p>
                     </div>
                 </div>
             </div>
@@ -264,7 +185,6 @@
         <footer id="access">
             <div class="terminal-footer">
                 <p>&gt; system_status: <span class="status-ok">OPERATIONAL</span></p>
-                <p>&gt; associated_pub: <a href="https://concordiadiscors.org" target="_blank" class="footer-link">CONCORDIA DISCORS</a></p>
                 <br>
                 <a href="mailto:deploy@tacitus.me?subject=Tacitus%20Deployment" class="cmd-link">
                     root@tacitus:~$ initiate_deployment_sequence
