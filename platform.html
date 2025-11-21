@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacitus | Concordia Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="neural-canvas"></canvas>
+
+    <nav class="glass-panel">
+        <div class="logo">TACITUS<span class="logo-mark">◳</span><span class="highlight">_</span></div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="platform.html" class="active-highlight">Conflict Intel</a>
+            <a href="analysis.html">Deep Analysis</a>
+            <a href="deployment.html">Deployment</a>
+            <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero analysis-hero">
+            <div class="content-wrapper">
+                <div class="badge">SYSTEM ARCHITECTURE // V1.0</div>
+                <h1 class="glitch-text" data-text="CONCORDIA DISCORS">CONCORDIA DISCORS</h1>
+                <p class="subtitle">
+                    A multi-pipeline, multi-agent <span class="accent">Conflict Intelligence Engine</span>. 
+                    Fusing OSINT, narrative modeling, and policy RAG to generate actionable strategic briefs.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-label">01. SYSTEM TOPOLOGY</div>
+            <div class="glass-card wide">
+                <h3>>> The Intelligence Pipeline</h3>
+                <p>
+                    The engine operates on a linear extraction logic: <strong>Ingest &rarr; Agentic Compute &rarr; Strategic Output</strong>.
+                </p>
+                
+                <div class="grid-3" style="margin-top:2rem;">
+                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-cyan);">
+                        <span class="stat-label">INPUT LAYER</span>
+                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">DATA INFRASTRUCTURE</h4>
+                        <ul class="terminal-list" style="margin-top:10px;">
+                            <li>> Web Intelligence (Tavily/Serper)</li>
+                            <li>> Country-Specific Scrapers</li>
+                            <li>> Document RAG (UN/Think Tanks)</li>
+                        </ul>
+                    </div>
+                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-purple);">
+                        <span class="stat-label">COMPUTE LAYER</span>
+                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">AGENTIC SWARM</h4>
+                        <ul class="terminal-list" style="margin-top:10px;">
+                            <li>> Fact Discovery Agents</li>
+                            <li>> Deep Analysis Engine</li>
+                            <li>> Recommendations Engine</li>
+                        </ul>
+                    </div>
+                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-amber);">
+                        <span class="stat-label">OUTPUT LAYER</span>
+                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">STRATEGIC ARTIFACTS</h4>
+                        <ul class="terminal-list" style="margin-top:10px;">
+                            <li>> Structured Situation Reports</li>
+                            <li>> Actor Ontologies</li>
+                            <li>> Stakeholder Briefings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-label">02. INGESTION VECTORS</div>
+            <div class="glass-card wide">
+                <h2>>> Data Infrastructure</h2>
+                <div class="grid-3">
+                    <div class="card-cyber">
+                        <h4 style="color:var(--neon-cyan)">Pipeline A: Velocity</h4>
+                        <p class="code-text" style="margin-bottom:10px;">TARGET: Web Intelligence</p>
+                        <p>Captures high-velocity updates via Tavily/Serper APIs and custom news scrapers (Reuters, AP, Al Jazeera). Deduplicates content and timestamps events within 3-12 hour refresh cycles.</p>
+                    </div>
+                    <div class="card-cyber">
+                        <h4 style="color:var(--neon-purple)">Pipeline B: Specificity</h4>
+                        <p class="code-text" style="margin-bottom:10px;">TARGET: Curated Profiles</p>
+                        <p>Targeting hard-to-find local sources (e.g., Enab Baladi, Congo Research Group). Uses Firecrawl to extract text from local radio transcripts and NGO updates.</p>
+                    </div>
+                    <div class="card-cyber">
+                        <h4 style="color:var(--neon-amber)">Pipeline C: Authority</h4>
+                        <p class="code-text" style="margin-bottom:10px;">TARGET: Strategic RAG</p>
+                        <p>A vector repository of slow-moving, high-authority documents (UN SG Reports, Carnegie, ICG). Provides historical continuity and legal grounding.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-label">03. AGENTIC PROCESSING</div>
+            <div class="glass-card wide">
+                <h2>>> The "Concordia" Swarm</h2>
+                <p>
+                    Tacitus does not summarize; it reconstructs. A council of specialized AI agents processes the ingested data in three sequential layers.
+                </p>
+
+                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
+                    <h3>LAYER 1: FACT DISCOVERY</h3>
+                </div>
+                <div class="grid-2" style="margin-top:0;">
+                    <div class="stakeholder-box">
+                        <div class="sh-header"><span class="dot-fact"></span> Developments Agent</div>
+                        <p class="sh-meta">Synthesizes last 72h of military, political, and humanitarian movements.</p>
+                    </div>
+                    <div class="stakeholder-box">
+                        <div class="sh-header"><span class="dot-fact"></span> Contradiction Checker</div>
+                        <p class="sh-meta">Cross-references sources to flag propaganda, missing dates, or low-reliability origins.</p>
+                    </div>
+                </div>
+
+                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
+                    <h3>LAYER 2: DEEP ANALYSIS</h3>
+                </div>
+                <div class="grid-2" style="margin-top:0;">
+                    <div class="stakeholder-box">
+                        <div class="sh-header"><span class="dot-narrative"></span> Ontology Engine</div>
+                        <p class="sh-meta">Maps actors, grievances, and alliances into a graph database. Identifies "spoilers" and windows for mediation.</p>
+                    </div>
+                    <div class="stakeholder-box">
+                        <div class="sh-header"><span class="dot-narrative"></span> Narrative Miner</div>
+                        <p class="sh-meta">Analyzes framing and legitimacy claims. Distinguishes between "Drivers of Conflict" (Resource/Ideological) and surface rhetoric.</p>
+                    </div>
+                </div>
+
+                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
+                    <h3>LAYER 3: POLICY GENERATION</h3>
+                </div>
+                <div class="terminal-log wide">
+                    <p>> <strong>INPUT:</strong> User selects Stakeholder (e.g., "UN OCHA", "UK FCDO", "NGO").</p>
+                    <p>> <strong>PROCESS:</strong> Agent aligns findings with stakeholder mandate, leverage, and risk appetite.</p>
+                    <p>> <strong>OUTPUT:</strong> "Prioritize community acceptance over speed; negotiate humanitarian corridors via Actor X."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2 class="section-heading">>> Deploy the Engine</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 2rem;">
+                The Concordia Discors module is available for Pilot deployment.
+                Includes full export capabilities (PDF, JSON Graph).
+            </p>
+            <a href="mailto:deploy@tacitus.me?subject=Concordia%20Pilot" class="btn-accent">Request Access</a>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
