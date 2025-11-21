@@ -392,3 +392,20 @@ footer {
     border-color: var(--neon-cyan); color: var(--neon-cyan);
     background: rgba(0, 243, 255, 0.1);
 }
+
+/* COPY THIS TO THE BOTTOM OF STYLE.CSS */
+
+.link-concordia {
+    color: var(--neon-amber); 
+    font-family: var(--font-mono); 
+    font-weight: 700;
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    transition: opacity 0.2s;
+    display: inline-block;
+    margin-top: 5px;
+}
+.link-concordia:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
