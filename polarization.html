@@ -1,43 +1,122 @@
-<div class="hero-copy">
-                    <div class="badge">v0.6 · CONFLICT INTELLIGENCE & RESOLUTION TECHNOLOGIES</div>
-                    
-                    <h1 class="glitch-text" data-text="CONFLICT IS INFORMATION ASYMMETRY">
-                        CONFLICT IS INFORMATION ASYMMETRY
-                    </h1>
-                    
-                    <p class="subtitle">
-                        Tacitus is a multi‑agent analysis layer that turns the
-                        <span class="accent">Resolution Deficit</span> into a map of what is really happening – 
-                        grounding high‑stakes decisions in structured evidence and common ground.
-                    </p>
-                    
-                    <div class="hero-tags">
-                        <span class="tag">email‑native</span>
-                        <span class="tag">multi‑agent</span>
-                        <span class="tag">RAG‑grounded</span>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacitus | The Prism Lab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="neural-canvas"></canvas>
 
-                    <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+    <nav class="glass-panel">
+        <div class="logo">TACITUS<span class="logo-mark">◳</span><span class="highlight">_</span></div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="platform.html">Conflict Intel</a>
+            <a href="polarization.html" class="active-highlight">The Prism</a>
+            <a href="analysis.html">Deep Analysis</a>
+            <a href="deployment.html">Deployment</a>
+            <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero analysis-hero">
+            <div class="content-wrapper">
+                <div class="badge">LAB MODULE // BETA</div>
+                <h1 class="glitch-text" data-text="THE PRISM">THE PRISM</h1>
+                <p class="subtitle">
+                    An educational engine for <span class="accent">Moral Reframing</span>. 
+                    Test your arguments, map your hidden axioms, and generate the "Golden Thread" 
+                    that connects your stance to your opponent's values.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-label">01. ARGUMENT REFRAMING ENGINE</div>
+            <div class="glass-card wide">
+                
+                <div class="grid-2">
+                    <div class="prism-input-col">
+                        <h4 class="hud-title">>> STEP 1: DEFINE STANCE</h4>
+                        <p class="code-text" style="margin-bottom:1rem;">Select a contentious topic to analyze:</p>
                         
-                        <div class="card-cyber small" style="padding: 1.2rem; border-top: 2px solid var(--neon-amber);">
-                            <h3 style="font-family: var(--font-mono); color: #fff; font-size: 0.85rem; margin-bottom: 8px;">
-                                CONCORDIA ENGINE
-                            </h3>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5;">
-                                Enterprise Conflict Intel. Automated Situation Reports & Strategic RAG.
-                            </p>
-                            <a href="platform.html" class="link-concordia">VIEW PIPELINE &rarr;</a>
+                        <div class="topic-selector">
+                            <button class="btn-ghost small active">AI Regulation</button>
+                            <button class="btn-ghost small">Urban Density</button>
+                            <button class="btn-ghost small">Free Speech</button>
                         </div>
 
-                        <div class="card-cyber small" style="padding: 1.2rem; border-top: 2px solid var(--neon-purple);">
-                            <h3 style="font-family: var(--font-mono); color: #fff; font-size: 0.85rem; margin-bottom: 8px;">
-                                THE PRISM LAB
-                            </h3>
-                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5;">
-                                Educational Tool. Test assumptions and generate Nuanced Arguments.
-                            </p>
-                            <a href="polarization.html" class="link-concordia" style="color: var(--neon-purple);">ENTER LAB &rarr;</a>
+                        <div class="slider-group" style="margin-top: 2rem;">
+                            <label class="stat-label">YOUR INTENSITY</label>
+                            <input type="range" min="1" max="100" value="80" class="cyber-slider">
+                            <div class="slider-labels">
+                                <span>Moderate</span>
+                                <span>Radical</span>
+                            </div>
                         </div>
 
+                        <div class="terminal-log" style="margin-top: 1.5rem;">
+                            <p>> detected_topic: "AI Safety"</p>
+                            <p>> current_frame: <span style="color:var(--neon-cyan)">"Innovation Risk"</span></p>
+                            <p>> <strong>OPPONENT_FRAME:</strong> "Existential Security"</p>
+                        </div>
                     </div>
+
+                    <div class="prism-vis-col">
+                        <h4 class="hud-title">>> STEP 2: LATENT VALUE MAP</h4>
+                        
+                        <div class="radar-chart-container">
+                            <div class="radar-axis axis-1"></div>
+                            <div class="radar-axis axis-2"></div>
+                            <div class="radar-shape"></div>
+                            
+                            <span class="radar-label top">LIBERTY</span>
+                            <span class="radar-label right">LOYALTY</span>
+                            <span class="radar-label bottom">AUTHORITY</span>
+                            <span class="radar-label left">CARE</span>
+                        </div>
+                        
+                        <p class="stat-desc" style="text-align:center; margin-top:10px;">
+                            Your argument relies heavily on <strong>Liberty</strong> values.<br>
+                            Your opponent filters for <strong>Authority/Security</strong>.
+                        </p>
                     </div>
+                </div>
+
+                <div class="prism-output" style="margin-top: 3rem; border-top: 1px dashed var(--glass-border); padding-top: 2rem;">
+                    <h4 class="hud-title">>> STEP 3: THE COMMON GROUND GENERATOR</h4>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        The system uses <span class="accent">Moral Reframing</span> to translate your argument into language 
+                        that resonates with your opponent's values, without compromising your core stance.
+                    </p>
+
+                    <div class="grid-2">
+                        <div class="card-cyber">
+                            <h4 style="color:#ff5555">❌ Why You Are Losing</h4>
+                            <p class="code-text">"We need open weights because freedom of speech is absolute."</p>
+                            <p class="stat-desc" style="color:#888; margin-top:5px;">(Rejects Opponent's fear of chaos)</p>
+                        </div>
+                        <div class="card-cyber" style="border-color: var(--neon-amber);">
+                            <h4 style="color:var(--neon-amber)">✅ The Nuanced Bridge</h4>
+                            <p class="code-text">"Open weights actually <strong>increase security</strong> (Authority) by allowing more eyes to catch vulnerabilities (Care) before bad actors exploit them."</p>
+                            <p class="stat-desc" style="color:var(--neon-amber); margin-top:5px;">(Validates Opponent's fear, uses it to support your goal)</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <a href="mailto:research@tacitus.me?subject=Prism%20Access" class="btn-accent">Request Education License</a>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
