@@ -1,217 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tacitus | Conflict Graph Engine</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
 
-<body>
-<canvas id="neural-canvas"></canvas>
+// -----------------------------
+//  TACITUS COMPLEX GRAPH ENGINE
+// -----------------------------
 
-<!-- NAV -->
-<nav class="glass-panel">
-    <div class="logo">TACITUS<span class="logo-mark">◳</span><span class="highlight">_</span></div>
-    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-    <div class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="analysis.html">Deep Analysis</a>
-        <a href="conflict-graph.html" class="active-highlight">Conflict Graph</a>
-        <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
-    </div>
-</nav>
+const svg = d3.select("#conflict-graph");
+const width = +svg.attr("width") || 900;
+const height = +svg.attr("height") || 520;
 
-<main>
+// MAIN GROUP
+const container = svg.append("g").attr("class", "graph-container");
 
-    <!-- HERO -->
-    <section class="hero analysis-hero">
-        <div class="content-wrapper">
-            <div class="badge">TACTICAL VISUALIZATION // ENGINE CORE</div>
-            <h1 class="glitch-text" data-text="CONFLICT GRAPH ENGINE">CONFLICT GRAPH ENGINE</h1>
-            <p class="subtitle">
-                Tacitus does not see “issues”. It sees <span class="accent">graphs</span>:
-                actors, incentives, constraints, alliances, vetoes, and hidden corridors of common ground,
-                all rendered as a single, explorable topology.
-            </p>
-        </div>
-    </section>
+// ZOOM
+svg.call(
+    d3.zoom().scaleExtent([0.3, 3]).on("zoom", (event) => {
+        container.attr("transform", event.transform);
+    })
+);
 
-    <!-- 01. GRAPH INTELLIGENCE -->
-    <section class="content-section">
-        <div class="section-label">01. GRAPH INTELLIGENCE</div>
-        <div class="glass-card wide analysis-card">
-            <div class="analysis-header">
-                <h3>FROM MESSAGES TO A STRUCTURED CONFLICT GRAPH</h3>
-                <span class="status-tag ok">ONTOLOGY-DRIVEN</span>
-            </div>
+// -----------------------------
+//  NODE / EDGE COLOR MAP
+// -----------------------------
+const nodeColors = {
+    ministry: "#4cc9f0",
+    union: "#f72585",
+    contractor: "#7209b7",
+    mayor: "#3a86ff",
+    oversight: "#ffba08",
+    external: "#06d6a0",
+    political: "#ff006e"
+};
 
-            <p>
-                The Tacitus Ontology Agent converts emails, minutes, legal notes, and press lines into a
-                <strong>property graph</strong>. Each actor, interest, constraint, and relationship becomes a node or edge,
-                annotated with role, mandate, power, and risk. The graph below is a stylized but realistic snapshot of a
-                national infrastructure crisis, built on that ontology.
-            </p>
+const edgeColors = {
+    dependency: "#6c757d",
+    veto: "#ff0033",
+    funding: "#00b4d8",
+    alliance: "#82c91e",
+    rivalry: "#ff6b6b",
+    pressure: "#f8961e",
+    oversight: "#ffdd00",
+    trust: "#1dd3b0",
+    narrative: "#b5179e"
+};
 
-            <div class="grid-3" style="margin-top: 1.5rem;">
-                <div class="stat-block">
-                    <span class="stat-label">Actors</span>
-                    <span class="stat-val cyan">NODES</span>
-                    <p class="stat-desc">
-                        Ministries, unions, contractors, mayors, oversight bodies, opposition, funding offices.
-                    </p>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-label">Relationships</span>
-                    <span class="stat-val purple">EDGES</span>
-                    <p class="stat-desc">
-                        Dependency, veto, alliance, rivalry, oversight, funding, pressure, trust, narrative ties.
-                    </p>
-                </div>
-                <div class="stat-block">
-                    <span class="stat-label">Constraints</span>
-                    <span class="stat-val amber">LIMITERS</span>
-                    <p class="stat-desc">
-                        Budgets, calendars, coalition math, audit risk, corruption exposure, labor law, elections.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+// -----------------------------
+//  COMPLEX GRAPH DATA
+// -----------------------------
+const graph = {
+    nodes: [
+        { id: "Ministry of Transport", type: "ministry", power: 9 },
+        { id: "Finance Ministry", type: "ministry", power: 8 },
+        { id: "National Rail Union", type: "union", power: 7 },
+        { id: "Contractors Consortium", type: "contractor", power: 6 },
+        { id: "Anti-Corruption Unit", type: "oversight", power: 8 },
+        { id: "External Funding Office", type: "external", power: 7 },
+        { id: "Opposition Bloc", type: "political", power: 6 },
 
-    <!-- 02. COMPLEX SCENARIO DESCRIPTION -->
-    <section class="content-section">
-        <div class="section-label">02. SCENARIO // NATIONAL INFRASTRUCTURE CRISIS</div>
-        <div class="glass-card wide analysis-card">
-            <div class="analysis-header">
-                <h3>NATIONAL RAIL UPGRADE AS A SYSTEMIC CONFLICT</h3>
-                <span class="status-tag warning">HIGH COMPLEXITY</span>
-            </div>
+        // local mayors cluster
+        { id: "Mayor North", type: "mayor", power: 4 },
+        { id: "Mayor South", type: "mayor", power: 4 },
+        { id: "Mayor East", type: "mayor", power: 4 },
+        { id: "Mayor West", type: "mayor", power: 4 },
 
-            <p>
-                Tacitus ingests the full communication ecosystem around a contentious national rail upgrade.
-                What follows is a hyper-dense but legible reconstruction of that conflict:
-                60+ actors and sub-actors, hundreds of edges, and a single graph that shows where resolution is structurally possible.
-            </p>
+        // latent actors
+        { id: "Press Ecosystem", type: "political", power: 5 },
+        { id: "Commuter Coalition", type: "external", power: 3 }
+    ],
 
-            <h4 class="hud-title" style="margin-top: 1.5rem;">>> CORE ACTOR CLUSTERS</h4>
-            <div class="grid-2" style="margin-top: 1rem;">
-                <div>
-                    <ul class="terminal-list">
-                        <li>> Ministry of Transport</li>
-                        <li>> National Rail Union</li>
-                        <li>> Finance Ministry</li>
-                        <li>> Contractor Consortium</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul class="terminal-list">
-                        <li>> Local Mayors Cluster</li>
-                        <li>> Anti-Corruption Unit</li>
-                        <li>> External Funding Office</li>
-                        <li>> Opposition Bloc</li>
-                    </ul>
-                </div>
-            </div>
+    links: [
+        // structural
+        { source: "Ministry of Transport", target: "Finance Ministry", type: "dependency" },
+        { source: "Ministry of Transport", target: "Contractors Consortium", type: "oversight" },
+        { source: "Finance Ministry", target: "External Funding Office", type: "funding" },
 
-            <h4 class="hud-title" style="margin-top: 1.8rem;">>> PSYCHOLOGY, ECONOMICS, AND NARRATIVE</h4>
-            <p class="stat-desc">
-                The graph embeds not just <em>who talks to whom</em>, but why they move as they do:
-                loss aversion in Treasury, identity and dignity in the Union, legitimacy anxiety in the Mayors,
-                blame-avoidance in Ministers, and scandal-sensitivity in the Anti-Corruption Unit.
-            </p>
-        </div>
-    </section>
+        // unions
+        { source: "National Rail Union", target: "Ministry of Transport", type: "pressure" },
+        { source: "National Rail Union", target: "Contractors Consortium", type: "rivalry" },
 
-    <!-- 03. LEGEND -->
-    <section class="content-section">
-        <div class="section-label">03. VISUAL LEGEND</div>
-        <div class="glass-card wide analysis-card">
-            <div class="analysis-header">
-                <h3>HOW TO READ THE GRAPH</h3>
-                <span class="status-tag ok">DETERMINISTIC ONTOLOGY</span>
-            </div>
+        // political
+        { source: "Opposition Bloc", target: "Finance Ministry", type: "veto" },
+        { source: "Opposition Bloc", target: "Press Ecosystem", type: "narrative" },
 
-            <div class="grid-2" style="margin-top: 1.5rem;">
-                <div>
-                    <h4 class="hud-title">>> NODE COLORS</h4>
-                    <ul class="terminal-list">
-                        <li><span class="legend-swatch legend-ministry"></span> Ministries</li>
-                        <li><span class="legend-swatch legend-union"></span> Unions</li>
-                        <li><span class="legend-swatch legend-contractor"></span> Contractors</li>
-                        <li><span class="legend-swatch legend-mayor"></span> Mayors</li>
-                        <li><span class="legend-swatch legend-oversight"></span> Oversight</li>
-                        <li><span class="legend-swatch legend-external"></span> External Funders</li>
-                        <li><span class="legend-swatch legend-political"></span> Opposition</li>
-                    </ul>
-                </div>
+        // mayors cluster
+        { source: "Mayor North", target: "Ministry of Transport", type: "pressure" },
+        { source: "Mayor East", target: "Ministry of Transport", type: "pressure" },
+        { source: "Mayor South", target: "Ministry of Transport", type: "pressure" },
+        { source: "Mayor West", target: "Ministry of Transport", type: "pressure" },
 
-                <div>
-                    <h4 class="hud-title">>> EDGE COLORS</h4>
-                    <ul class="terminal-list">
-                        <li><span class="legend-line legend-dependency"></span> Dependency</li>
-                        <li><span class="legend-line legend-veto"></span> Veto</li>
-                        <li><span class="legend-line legend-funding"></span> Funding</li>
-                        <li><span class="legend-line legend-alliance"></span> Alliance</li>
-                        <li><span class="legend-line legend-rivalry"></span> Rivalry</li>
-                        <li><span class="legend-line legend-pressure"></span> Pressure</li>
-                        <li><span class="legend-line legend-oversight"></span> Oversight</li>
-                        <li><span class="legend-line legend-trust"></span> Trust</li>
-                        <li><span class="legend-line legend-narrative"></span> Narrative</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+        { source: "Mayor North", target: "Commuter Coalition", type: "trust" },
+        { source: "Mayor South", target: "Commuter Coalition", type: "trust" },
 
-    <!-- 04. INTERACTIVE GRAPH -->
-    <section class="content-section">
-        <div class="section-label">04. LIVE CONFLICT TOPOLOGY</div>
-        <div class="glass-card wide analysis-card">
-            <div class="analysis-header">
-                <h3>EXPLORE THE CONFLICT GRAPH</h3>
-                <span class="status-tag ok">INTERACTIVE</span>
-            </div>
+        // oversight
+        { source: "Anti-Corruption Unit", target: "Contractors Consortium", type: "oversight" },
+        { source: "Anti-Corruption Unit", target: "Ministry of Transport", type: "oversight" }
+    ]
+};
 
-            <p>
-                Drag nodes, zoom, click actors or edges.  
-                The narrative panel shows each actor’s ontology profile.
-            </p>
+// -----------------------------
+//  FORCE SIMULATION
+// -----------------------------
+const simulation = d3
+    .forceSimulation(graph.nodes)
+    .force("link", d3.forceLink(graph.links).id((d) => d.id).distance(120))
+    .force("charge", d3.forceManyBody().strength(-350))
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force("collision", d3.forceCollide().radius(40));
 
-            <button id="conflict-graph-reset" class="btn-accent" style="margin: 1rem 0;">Reset View</button>
+// -----------------------------
+//  RENDERING NODES AND LINKS
+// -----------------------------
+const link = container
+    .append("g")
+    .attr("class", "edges")
+    .selectAll("line")
+    .data(graph.links)
+    .enter()
+    .append("line")
+    .attr("stroke", (d) => edgeColors[d.type])
+    .attr("stroke-width", 2)
+    .attr("opacity", 0.75);
 
-            <div style="display: flex; gap: 1.5rem;">
-                <div id="conflict-graph-container" style="flex: 2; height: 520px;">
-                    <svg id="conflict-graph" width="100%" height="520"></svg>
-                </div>
+const node = container
+    .append("g")
+    .attr("class", "nodes")
+    .selectAll("circle")
+    .data(graph.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", 14)
+    .attr("fill", (d) => nodeColors[d.type])
+    .call(
+        d3.drag()
+            .on("start", dragStart)
+            .on("drag", drag)
+            .on("end", dragEnd)
+    );
 
-                <aside id="graph-narrative" class="glass-card analysis-card" style="flex: 1;">
-                    <h4 class="hud-title">>> NARRATIVE PANEL</h4>
-                    <p class="stat-desc" id="graph-narrative-intro">
-                        Hover or click on nodes & edges for details.
-                    </p>
-                    <div id="graph-narrative-body" class="stat-desc" style="white-space: pre-line;"></div>
-                </aside>
-            </div>
-        </div>
-    </section>
+const labels = container
+    .append("g")
+    .attr("class", "labels")
+    .selectAll("text")
+    .data(graph.nodes)
+    .enter()
+    .append("text")
+    .text((d) => d.id)
+    .attr("font-size", "12px")
+    .attr("dx", 18)
+    .attr("dy", 4)
+    .attr("fill", "#fff");
 
-    <!-- CTA -->
-    <section class="content-section" style="text-align: center;">
-        <h2 class="section-heading">>> Run Your Conflict Through Tacitus</h2>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto;">
-            We build a real conflict graph for your organization — and extract your resolution path.
-        </p>
-        <a href="mailto:deploy@tacitus.me" class="btn-accent">Start Pilot</a>
-    </section>
+// -----------------------------
+//  TICK FUNCTION
+// -----------------------------
+simulation.on("tick", () => {
+    link
+        .attr("x1", (d) => d.source.x)
+        .attr("y1", (d) => d.source.y)
+        .attr("x2", (d) => d.target.x)
+        .attr("y2", (d) => d.target.y);
 
-</main>
+    node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
 
-<script src="script.js"></script>
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="conflict-graph-engine.js"></script>
+    labels.attr("x", (d) => d.x).attr("y", (d) => d.y);
+});
 
-</body>
-</html>
+// -----------------------------
+//  DRAGGING
+// -----------------------------
+function dragStart(event, d) {
+    if (!event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
 
+function drag(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+}
+
+function dragEnd(event, d) {
+    if (!event.active) simulation.alphaTarget(0);
+    d.fx = null;
+    d.fy = null;
+}
+
+// Reset Button
+document.getElementById("conflict-graph-reset").onclick = () => {
+    simulation.alpha(1).restart();
+};
