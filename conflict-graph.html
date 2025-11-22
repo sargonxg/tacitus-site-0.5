@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacitus | Conflict Graph Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<canvas id="neural-canvas"></canvas>
+
+<!-- NAV -->
+<nav class="glass-panel">
+    <div class="logo">TACITUS<span class="logo-mark">◳</span><span class="highlight">_</span></div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="analysis.html">Deep Analysis</a>
+        <a href="conflict-graph.html" class="active-highlight">Conflict Graph</a>
+        <a href="mailto:deploy@tacitus.me" class="btn-glow">Initialize</a>
+    </div>
+</nav>
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero analysis-hero">
+        <div class="content-wrapper">
+            <div class="badge">TACTICAL VISUALIZATION // ENGINE CORE</div>
+            <h1 class="glitch-text" data-text="CONFLICT GRAPH ENGINE">CONFLICT GRAPH ENGINE</h1>
+            <p class="subtitle">
+                Tacitus does not see “issues”. It sees <span class="accent">graphs</span>:
+                actors, incentives, constraints, alliances, vetoes, and hidden corridors of common ground,
+                all rendered as a single, explorable topology.
+            </p>
+        </div>
+    </section>
+
+    <!-- 01. GRAPH INTELLIGENCE -->
+    <section class="content-section">
+        <div class="section-label">01. GRAPH INTELLIGENCE</div>
+        <div class="glass-card wide analysis-card">
+            <div class="analysis-header">
+                <h3>FROM MESSAGES TO A STRUCTURED CONFLICT GRAPH</h3>
+                <span class="status-tag ok">ONTOLOGY-DRIVEN</span>
+            </div>
+
+            <p>
+                The Tacitus Ontology Agent converts emails, minutes, legal notes, and press lines into a
+                <strong>property graph</strong>. Each actor, interest, constraint, and relationship becomes a node or edge,
+                annotated with role, mandate, power, and risk. The graph below is a stylized but realistic snapshot of a
+                national infrastructure crisis, built on that ontology.
+            </p>
+
+            <div class="grid-3" style="margin-top: 1.5rem;">
+                <div class="stat-block">
+                    <span class="stat-label">Actors</span>
+                    <span class="stat-val cyan">NODES</span>
+                    <p class="stat-desc">
+                        Ministries, unions, contractors, mayors, oversight bodies, opposition, funding offices.
+                    </p>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-label">Relationships</span>
+                    <span class="stat-val purple">EDGES</span>
+                    <p class="stat-desc">
+                        Dependency, veto, alliance, rivalry, oversight, funding, pressure, trust, narrative ties.
+                    </p>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-label">Constraints</span>
+                    <span class="stat-val amber">LIMITERS</span>
+                    <p class="stat-desc">
+                        Budgets, calendars, coalition math, audit risk, corruption exposure, labor law, elections.
+                    </p>
+                </div>
+            </div>
+
+            <div class="terminal-log wide" style="margin-top: 1.5rem;">
+                <p>> ontology_agent → actors, interests, constraints, relationships</p>
+                <p>> conflict_graph = build_property_graph(ontology)</p>
+                <p>> analyze(conflict_graph) → leverage_points, bottlenecks, common_ground_clusters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. COMPLEX SCENARIO DESCRIPTION -->
+    <section class="content-section">
+        <div class="section-label">02. SCENARIO // NATIONAL INFRASTRUCTURE CRISIS</div>
+        <div class="glass-card wide analysis-card">
+            <div class="analysis-header">
+                <h3>NATIONAL RAIL UPGRADE AS A SYSTEMIC CONFLICT</h3>
+                <span class="status-tag warning">HIGH COMPLEXITY</span>
+            </div>
+
+            <p>
+                Tacitus ingests the full communication ecosystem around a contentious national rail upgrade.
+                What follows is a hyper-dense but legible reconstruction of that conflict:
+                60+ actors and sub-actors, hundreds of edges, and a single graph that shows where resolution is structurally possible.
+            </p>
+
+            <h4 class="hud-title" style="margin-top: 1.5rem;">>> CORE ACTOR CLUSTERS</h4>
+            <div class="grid-2" style="margin-top: 1rem;">
+                <div>
+                    <ul class="terminal-list">
+                        <li>> Ministry of Transport (Minister, Technical Directorate, Comms Unit)</li>
+                        <li>> Finance Ministry / Treasury (Budget Dept, Public Accounts, Debt Office)</li>
+                        <li>> National Rail Union (Central Committee, Regional Strike Councils)</li>
+                        <li>> Private Contractor Consortium (CEO, Legal, Project Management)</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="terminal-list">
+                        <li>> Cluster of Local Mayors (12 municipalities on the line)</li>
+                        <li>> National Anti-Corruption Unit (Investigations, Press Cell)</li>
+                        <li>> External Funding Office (Program Manager, Oversight Board)</li>
+                        <li>> Opposition Bloc (Shadow Transport &amp; Finance Teams)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 class="hud-title" style="margin-top: 1.8rem;">>> PSYCHOLOGY, ECONOMICS, AND NARRATIVE</h4>
+            <p class="stat-desc">
+                The graph embeds not just <em>who talks to whom</em>, but why they move as they do:
+                loss aversion in Treasury, identity and dignity in the Union, legitimacy anxiety in the Mayors,
+                blame-avoidance in Ministers, and scandal-sensitivity in the Anti-Corruption Unit. Economically,
+                the upgrade sits at the intersection of debt ceilings, conditionality from external funding,
+                short-term strike losses, long-term productivity gains, and the politics of who “owns” credit.
+            </p>
+            <p class="stat-desc">
+                Tacitus encodes these factors as structured attributes on nodes and edges. The visualization below
+                is a single, stable snapshot of that structure: a “frozen” conflict graph that can be interrogated
+                without being lost in narrative fog.
+            </p>
+
+            <div class="terminal-log wide" style="margin-top: 1.5rem;">
+                <p>> psychology_layer: fairness_heuristics, identity_threat, legitimacy_risk, loss_aversion</p>
+                <p>> economics_layer: debt_ceiling, strike_costs, CAPEX_timeline, conditionality, ROI_window</p>
+                <p>> narrative_layer: blame_allocation, credit_claims, scandal_frames, regionalresentment</p>
+                <p>> all_layers → attributes(conflict_graph)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. LEGEND + EXPLANATION -->
+    <section class="content-section">
+        <div class="section-label">03. VISUAL LEGEND</div>
+        <div class="glass-card wide analysis-card">
+            <div class="analysis-header">
+                <h3>HOW TO READ THE GRAPH</h3>
+                <span class="status-tag ok">DETERMINISTIC ONTOLOGY</span>
+            </div>
+
+            <div class="grid-2" style="margin-top: 1.5rem;">
+                <div>
+                    <h4 class="hud-title">>> NODE COLORS (ACTOR TYPE)</h4>
+                    <ul class="terminal-list">
+                        <li><span class="legend-swatch legend-ministry"></span> Ministries &amp; central government</li>
+                        <li><span class="legend-swatch legend-union"></span> Unions &amp; labor structures</li>
+                        <li><span class="legend-swatch legend-contractor"></span> Private contractors &amp; firms</li>
+                        <li><span class="legend-swatch legend-mayor"></span> Local mayors &amp; municipalities</li>
+                        <li><span class="legend-swatch legend-oversight"></span> Oversight / Anti-corruption bodies</li>
+                        <li><span class="legend-swatch legend-external"></span> External funders / supranational actors</li>
+                        <li><span class="legend-swatch legend-political"></span> Opposition / political actors</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="hud-title">>> EDGE COLORS (RELATIONSHIP TYPE)</h4>
+                    <ul class="terminal-list">
+                        <li><span class="legend-line legend-dependency"></span> Dependency / implementation reliance</li>
+                        <li><span class="legend-line legend-veto"></span> Veto / hard blocking power</li>
+                        <li><span class="legend-line legend-funding"></span> Funding / conditional finance</li>
+                        <li><span class="legend-line legend-alliance"></span> Alliance / coalition tie</li>
+                        <li><span class="legend-line legend-rivalry"></span> Rivalry / adversarial politics</li>
+                        <li><span class="legend-line legend-pressure"></span> Pressure / protest / media campaigns</li>
+                        <li><span class="legend-line legend-oversight"></span> Oversight / investigation / audit</li>
+                        <li><span class="legend-line legend-trust"></span> Trust / mediation channel</li>
+                        <li><span class="legend-line legend-narrative"></span> Narrative tie (who shapes whose story)</li>
+                    </ul>
+                    <p class="stat-desc" style="margin-top: 0.5rem;">
+                        Dashed edges are <strong>inferred</strong> by the Ontology Agent (latent ties),
+                        solid edges are explicit from the record. Glow indicates ZOPA-relevant nodes or edges.
+                    </p>
+                </div>
+            </div>
+
+            <div class="terminal-log wide" style="margin-top: 1.5rem;">
+                <p>> MATCH (a:Actor)-[r]->(b:Actor)</p>
+                <p>> RETURN type(r), r.relation_type, r.strength, r.inferred, r.zopa_relevance</p>
+                <p>> visualization: color(relation_type) + stroke(inferred) + glow(zopa_relevance)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. INTERACTIVE GRAPH -->
+    <section class="content-section">
+        <div class="section-label">04. LIVE CONFLICT TOPOLOGY</div>
+
+        <div class="glass-card wide analysis-card" style="position: relative;">
+            <div class="analysis-header">
+                <h3>EXPLORE THE CONFLICT GRAPH</h3>
+                <span class="status-tag ok">INTERACTIVE SNAPSHOT</span>
+            </div>
+
+            <p>
+                Drag nodes, zoom, and click on actors or edges to inspect how Tacitus encodes the conflict.
+                The narrative panel on the right shows the full ontology profile for the selected element:
+                interests, constraints, psychological drivers, economic incentives, and structural role.
+            </p>
+
+            <div class="topic-selector" style="margin: 1.2rem 0;">
+                <button id="conflict-graph-reset" class="btn-accent">Reset View</button>
+            </div>
+
+            <div style="display: flex; gap: 1.5rem; align-items: stretch;">
+                <div id="conflict-graph-container" class="graph-container" style="flex: 2; height: 520px;">
+                    <svg id="conflict-graph" width="100%" height="520"></svg>
+                </div>
+
+                <aside id="graph-narrative" class="glass-card analysis-card" style="flex: 1; max-width: 360px; min-height: 520px;">
+                    <h4 class="hud-title">>> NARRATIVE PANEL</h4>
+                    <p class="stat-desc" id="graph-narrative-intro">
+                        Hover or click on a node to see its Tacitus ontology profile.
+                        Hover or click on an edge to inspect a specific relationship:
+                        why it matters, what it carries (risk, trust, money, blame),
+                        and how it shapes the Zone of Possible Agreement.
+                    </p>
+                    <div id="graph-narrative-body" class="stat-desc" style="margin-top: 1rem; white-space: pre-line;"></div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="content-section" style="text-align: center;">
+        <h2 class="section-heading">>> Run Your Conflict Through This Engine</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 2rem;">
+            Tacitus connects to your communication graph in read-only mode and produces a similarly detailed
+            topology for your own disputes — from internal governance to public-sector negotiations.
+        </p>
+        <a href="mailto:deploy@tacitus.me" class="btn-accent">Start Pilot</a>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="conflict-graph.js"></script>
+
+</body>
+</html>
