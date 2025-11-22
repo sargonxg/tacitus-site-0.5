@@ -384,6 +384,32 @@
             </p>
             <a href="mailto:deploy@tacitus.me" class="btn-accent">Start Pilot</a>
         </section>
+<section class="content-section">
+    <div class="section-label">08. DELIBERATION ROUNDS // SIMULATION</div>
+
+    <div class="glass-card wide analysis-card">
+        <div class="analysis-header">
+            <h3>SIMULATING RESOLUTION PATHWAYS</h3>
+            <span class="status-tag ok">DYNAMIC</span>
+        </div>
+
+        <p>
+            Tacitus treats mediation as an <strong>iterative graph transformation</strong>.
+            Each round cleans up misinformation, updates inferred interests, expands possible agreements,
+            and tests the stability of proposed guarantees.
+        </p>
+
+        <div class="topic-selector" style="margin: 1.8rem 0;">
+            <button id="delib-start" class="btn-accent">RUN 6 ROUNDS</button>
+        </div>
+
+        <div id="delib-graph-container" class="graph-container" style="height: 420px;">
+            <svg id="delib-graph" width="100%" height="420"></svg>
+        </div>
+
+        <p id="delib-status" class="stat-desc" style="margin-top:1rem;">Ready.</p>
+    </div>
+</section>
 
     </main>
     <script src="script.js"></script>
