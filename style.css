@@ -453,3 +453,55 @@ footer {
     color: var(--text-muted);
     background: rgba(15, 23, 42, 0.7);
 }
+
+/* === CONFLICT GRAPH VISUALIZER === */
+
+.graph-container {
+    margin-top: 1rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 20%, rgba(0,70,140,0.16), rgba(0,0,0,0.2));
+}
+
+.node text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    pointer-events: none;
+    fill: var(--text-muted);
+}
+
+.node circle {
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.node:hover circle {
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 6px var(--neon-cyan));
+}
+
+.link {
+    stroke-opacity: 0.7;
+}
+
+.link.tension {
+    stroke: #ff4d4d;
+    stroke-dasharray: 4 2;
+}
+
+.link.cooperation {
+    stroke: #00ffaa;
+}
+
+.link.mediation {
+    stroke: #ffd166;
+    stroke-width: 2.5;
+}
+
+#node-details {
+    min-height: 48px;
+}
+
