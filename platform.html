@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tacitus | Concordia Engine</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
     <canvas id="neural-canvas"></canvas>
 
@@ -23,138 +28,377 @@
     </nav>
 
     <main>
+
+        <!-- ========================================================= -->
+        <!-- HERO SECTION -->
+        <!-- ========================================================= -->
+
         <section class="hero analysis-hero">
             <div class="content-wrapper">
-                <div class="badge">SYSTEM ARCHITECTURE // V1.0</div>
-                <h1 class="glitch-text" data-text="CONCORDIA DISCORS">CONCORDIA DISCORS</h1>
+                <div class="badge">SYSTEM ARCHITECTURE // V2.1</div>
+                <h1 class="glitch-text" data-text="CONCORDIA ENGINE">CONCORDIA ENGINE</h1>
                 <p class="subtitle">
-                    A multi-pipeline, multi-agent <span class="accent">Conflict Intelligence Engine</span>. 
-                    Fusing OSINT, narrative modeling, and policy RAG to generate actionable strategic briefs.
+                    A multi-pipeline, multi-agent <span class="accent">Conflict Intelligence Engine</span>.
+                    Tacitus fuses OSINT scraping, deep-document RAG, and a full conflict ontology to build
+                    a living model of political, organizational, and interpersonal disputes.
                 </p>
             </div>
         </section>
+
+        <!-- ========================================================= -->
+        <!-- SYSTEM TOPOLOGY -->
+        <!-- ========================================================= -->
 
         <section class="content-section">
             <div class="section-label">01. SYSTEM TOPOLOGY</div>
+
             <div class="glass-card wide">
                 <h3>>> The Intelligence Pipeline</h3>
+
                 <p>
-                    The engine operates on a linear extraction logic: <strong>Ingest &rarr; Agentic Compute &rarr; Strategic Output</strong>.
+                    The Concordia Engine operates across a structured analytical chain:
+                    <strong>Ingestion → Agentic Compute → Strategic Output</strong>.
+                    Each layer is fault-tolerant, independently scalable, and designed to
+                    model conflicts ranging from family disputes to geopolitical crises.
                 </p>
-                
-                <div class="grid-3" style="margin-top:2rem;">
-                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-cyan);">
+
+                <div class="grid-3" style="margin-top: 2rem;">
+                    <div class="stat-block" style="border-left: 2px solid var(--neon-cyan);">
                         <span class="stat-label">INPUT LAYER</span>
-                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">DATA INFRASTRUCTURE</h4>
-                        <ul class="terminal-list" style="margin-top:10px;">
-                            <li>> Web Intelligence (Tavily/Serper)</li>
-                            <li>> Country-Specific Scrapers</li>
-                            <li>> Document RAG (UN/Think Tanks)</li>
+                        <h4 class="hud-title">DATA INFRASTRUCTURE</h4>
+                        <ul class="terminal-list">
+                            <li>> Tavily / Serper / GDELT</li>
+                            <li>> Firecrawl Local Media Scraping</li>
+                            <li>> RAG (UN, ICG, SG Reports)</li>
+                            <li>> Supabase Vector Search</li>
+                            <li>> Vertex AI Batch Inference</li>
                         </ul>
                     </div>
-                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-purple);">
+
+                    <div class="stat-block" style="border-left: 2px solid var(--neon-purple);">
                         <span class="stat-label">COMPUTE LAYER</span>
-                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">AGENTIC SWARM</h4>
-                        <ul class="terminal-list" style="margin-top:10px;">
-                            <li>> Fact Discovery Agents</li>
-                            <li>> Deep Analysis Engine</li>
+                        <h4 class="hud-title">AGENTIC SWARM</h4>
+                        <ul class="terminal-list">
+                            <li>> Fact-Discovery Agents (LangGraph)</li>
+                            <li>> Contradiction & Propaganda Filters</li>
+                            <li>> Ontology Engine (Actors, Drivers)</li>
+                            <li>> Strategy / Policy Agents</li>
+                        </ul>
+                    </div>
+
+                    <div class="stat-block" style="border-left: 2px solid var(--neon-amber);">
+                        <span class="stat-label">OUTPUT LAYER</span>
+                        <h4 class="hud-title">STRATEGIC ARTIFACTS</h4>
+                        <ul class="terminal-list">
+                            <li>> Situation Reports (JSON / PDF)</li>
+                            <li>> Stakeholder Maps</li>
+                            <li>> Conflict Graphs</li>
                             <li>> Recommendations Engine</li>
                         </ul>
                     </div>
-                    <div class="stat-block" style="text-align: left; border-left: 2px solid var(--neon-amber);">
-                        <span class="stat-label">OUTPUT LAYER</span>
-                        <h4 class="hud-title" style="color: #fff; margin-top:5px;">STRATEGIC ARTIFACTS</h4>
-                        <ul class="terminal-list" style="margin-top:10px;">
-                            <li>> Structured Situation Reports</li>
-                            <li>> Actor Ontologies</li>
-                            <li>> Stakeholder Briefings</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ========================================================= -->
+        <!-- INGESTION VECTORS -->
+        <!-- ========================================================= -->
 
         <section class="content-section">
             <div class="section-label">02. INGESTION VECTORS</div>
+
             <div class="glass-card wide">
                 <h2>>> Data Infrastructure</h2>
-                <div class="grid-3">
+
+                <p>
+                    Tacitus uses three major pipelines, each tailored to a different temporal and epistemic profile:
+                </p>
+
+                <div class="grid-3" style="margin-top: 1.5rem;">
+
+                    <!-- PIPELINE A -->
                     <div class="card-cyber">
-                        <h4 style="color:var(--neon-cyan)">Pipeline A: Velocity</h4>
-                        <p class="code-text" style="margin-bottom:10px;">TARGET: Web Intelligence</p>
-                        <p>Captures high-velocity updates via Tavily/Serper APIs and custom news scrapers (Reuters, AP, Al Jazeera). Deduplicates content and timestamps events within 3-12 hour refresh cycles.</p>
+                        <h4 style="color: var(--neon-cyan)">Pipeline A: Velocity</h4>
+                        <p class="code-text">TARGET: High-Frequency OSINT</p>
+                        <p>
+                            Tavily / Serper / GDELT / AP Wire feed a real-time event stream.
+                            A deduplication engine filters noise every 3–12 hours,
+                            using text-similarity hashing and temporal clustering.
+                        </p>
+                        <p class="stat-desc">
+                            Example Sources: Reuters, AP, Al Jazeera, Anadolu, BBC Monitoring.
+                        </p>
                     </div>
+
+                    <!-- PIPELINE B -->
                     <div class="card-cyber">
-                        <h4 style="color:var(--neon-purple)">Pipeline B: Specificity</h4>
-                        <p class="code-text" style="margin-bottom:10px;">TARGET: Curated Profiles</p>
-                        <p>Targeting hard-to-find local sources (e.g., Enab Baladi, Congo Research Group). Uses Firecrawl to extract text from local radio transcripts and NGO updates.</p>
+                        <h4 style="color: var(--neon-purple)">Pipeline B: Specificity</h4>
+                        <p class="code-text">TARGET: Local Media / Niche Actors</p>
+                        <p>
+                            Firecrawl extracts content from community radio, local newspapers,
+                            rebel statements, municipality bulletins, and NGO field reports.
+                        </p>
+                        <p class="stat-desc">
+                            Use Case: Enab Baladi (Syria), Congo Research Group,
+                            Sudanese neighborhood committees.
+                        </p>
                     </div>
+
+                    <!-- PIPELINE C -->
                     <div class="card-cyber">
-                        <h4 style="color:var(--neon-amber)">Pipeline C: Authority</h4>
-                        <p class="code-text" style="margin-bottom:10px;">TARGET: Strategic RAG</p>
-                        <p>A vector repository of slow-moving, high-authority documents (UN SG Reports, Carnegie, ICG). Provides historical continuity and legal grounding.</p>
+                        <h4 style="color: var(--neon-amber)">Pipeline C: Authority</h4>
+                        <p class="code-text">TARGET: Slow-Moving High Authority RAG</p>
+                        <p>
+                            A vector store of UN SG reports, ICCT research, Carnegie/ICG analyses,
+                            academic papers, legal frameworks. Indexed with Supabase or Vertex AI.
+                        </p>
                     </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>>> Pipeline Orchestration</h3>
+                    <p>
+                        All three pipelines flow through a <strong>LangGraph Orchestrator</strong>,
+                        which handles stateful multi-step reasoning, and a <strong>Cloud Run microservice</strong>
+                        that schedules asynchronous scraping tasks.
+                    </p>
                 </div>
             </div>
         </section>
+
+        <!-- ========================================================= -->
+        <!-- AGENTIC SWARM -->
+        <!-- ========================================================= -->
 
         <section class="content-section">
             <div class="section-label">03. AGENTIC PROCESSING</div>
+
             <div class="glass-card wide">
+
                 <h2>>> The "Concordia" Swarm</h2>
+
                 <p>
-                    Tacitus does not summarize; it reconstructs. A council of specialized AI agents processes the ingested data in three sequential layers.
+                    Tacitus does not summarize — it reconstructs reality through a structured,
+                    multi-agent council. Agents cooperate, challenge each other, and escalate contradictions.
                 </p>
 
-                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
-                    <h3>LAYER 1: FACT DISCOVERY</h3>
+                <!-- LAYER 1 -->
+                <div class="analysis-header" style="margin-top:2rem;">
+                    <h3>LAYER 1 — FACT DISCOVERY</h3>
                 </div>
-                <div class="grid-2" style="margin-top:0;">
+
+                <div class="grid-2">
                     <div class="stakeholder-box">
                         <div class="sh-header"><span class="dot-fact"></span> Developments Agent</div>
-                        <p class="sh-meta">Synthesizes last 72h of military, political, and humanitarian movements.</p>
+                        <p class="sh-meta">
+                            Synthesizes last 72h of political, military, and humanitarian movements.
+                        </p>
                     </div>
                     <div class="stakeholder-box">
                         <div class="sh-header"><span class="dot-fact"></span> Contradiction Checker</div>
-                        <p class="sh-meta">Cross-references sources to flag propaganda, missing dates, or low-reliability origins.</p>
+                        <p class="sh-meta">
+                            Runs cross-source validation via a ReAct chain. Flags propaganda, errors, or manipulated media.
+                        </p>
                     </div>
                 </div>
 
-                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
-                    <h3>LAYER 2: DEEP ANALYSIS</h3>
+                <!-- LAYER 2 -->
+                <div class="analysis-header" style="margin-top:2rem;">
+                    <h3>LAYER 2 — DEEP ONTOLOGY</h3>
                 </div>
-                <div class="grid-2" style="margin-top:0;">
+
+                <div class="grid-2">
                     <div class="stakeholder-box">
-                        <div class="sh-header"><span class="dot-narrative"></span> Ontology Engine</div>
-                        <p class="sh-meta">Maps actors, grievances, and alliances into a graph database. Identifies "spoilers" and windows for mediation.</p>
+                        <div class="sh-header"><span class="dot-narrative"></span> Conflict Ontology Engine</div>
+                        <p class="sh-meta">
+                            Converts events into an actor graph:
+                            state actors, militias, ministries, NGOs,
+                            business actors, and individual influencers.
+                        </p>
                     </div>
                     <div class="stakeholder-box">
                         <div class="sh-header"><span class="dot-narrative"></span> Narrative Miner</div>
-                        <p class="sh-meta">Analyzes framing and legitimacy claims. Distinguishes between "Drivers of Conflict" (Resource/Ideological) and surface rhetoric.</p>
+                        <p class="sh-meta">
+                            Extracts legitimacy claims, grievances, power deltas, red lines.
+                            Distinguishes <strong>Drivers of Conflict</strong> from surface rhetoric.
+                        </p>
                     </div>
                 </div>
 
-                <div class="analysis-header" style="margin-top:2rem; border-bottom:none;">
-                    <h3>LAYER 3: POLICY GENERATION</h3>
+                <!-- LAYER 3 -->
+                <div class="analysis-header" style="margin-top:2rem;">
+                    <h3>LAYER 3 — POLICY GENERATION</h3>
                 </div>
+
                 <div class="terminal-log wide">
-                    <p>> <strong>INPUT:</strong> User selects Stakeholder (e.g., "UN OCHA", "UK FCDO", "NGO").</p>
-                    <p>> <strong>PROCESS:</strong> Agent aligns findings with stakeholder mandate, leverage, and risk appetite.</p>
-                    <p>> <strong>OUTPUT:</strong> "Prioritize community acceptance over speed; negotiate humanitarian corridors via Actor X."</p>
+                    <p>> <strong>INPUT:</strong> User defines Stakeholder (UN, FCDO, NGO, CEO).</p>
+                    <p>> <strong>PROCESS:</strong> Strategy Agent adjusts analysis to mandate,
+                        leverage, and risk tolerance.</p>
+                    <p>> <strong>OUTPUT:</strong> Prioritized to-dos, mediation pathways,
+                        pressure levers, and anticipated reactions.</p>
                 </div>
             </div>
         </section>
+
+        <!-- ========================================================= -->
+        <!-- REAL CASE STUDIES: VISUALIZED CONFLICTS -->
+        <!-- ========================================================= -->
+
+        <section class="content-section">
+            <div class="section-label">04. REAL CONFLICT MODELS</div>
+
+            <div class="glass-card wide">
+                <h2>>> Visualizing Conflicts Across Scales</h2>
+
+                <p>
+                    The Concordia Engine models conflicts from geopolitics to family disputes.
+                    Every situation is represented as a graph of <strong>Actors → Interests → Constraints → Relationships</strong>.
+                </p>
+
+                <!-- ========================================================= -->
+                <!-- CASE 1: GEOPOLITICAL MEDIATION -->
+                <!-- ========================================================= -->
+
+                <h3 style="margin-top:2rem;">Case 01 — Geopolitical Mediation: Saudi–Iran Détente (2023)</h3>
+
+                <table class="terminal-table" style="margin-top:1rem;">
+                    <thead>
+                        <tr>
+                            <th>Actor</th>
+                            <th>Type</th>
+                            <th>Core Interest</th>
+                            <th>Constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saudi Arabia</td>
+                            <td>State</td>
+                            <td>Regional security; Yemen de-escalation</td>
+                            <td>U.S. alignment; internal reforms</td>
+                        </tr>
+                        <tr>
+                            <td>Iran</td>
+                            <td>State</td>
+                            <td>Sanctions relief; regional legitimacy</td>
+                            <td>Economic fragility; IRGC factions</td>
+                        </tr>
+                        <tr>
+                            <td>China</td>
+                            <td>Mediator</td>
+                            <td>Stability for energy supply</td>
+                            <td>Non-alignment doctrine</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="stat-desc" style="margin-top:1rem;">
+                    The engine converts this into a conflict graph with tension edges and opportunity edges.
+                </p>
+
+                <pre class="code-text">
+{
+  "Saudi": { "interests": ["security", "regional stability"], "edges": { "Iran": "tension", "China": "cooperation" }},
+  "Iran": { "interests": ["sanctions relief"], "edges": { "Saudi": "tension", "China": "cooperation" }},
+  "China": { "interests": ["energy stability"], "edges": { "Saudi": "mediation", "Iran": "mediation" }}
+}
+                </pre>
+
+                <!-- ========================================================= -->
+                <!-- CASE 2: BOARD CONFLICT -->
+                <!-- ========================================================= -->
+
+                <h3 style="margin-top:3rem;">Case 02 — Corporate Board Conflict: OpenAI Governance Crisis (2023)</h3>
+
+                <table class="terminal-table">
+                    <thead>
+                        <tr>
+                            <th>Actor</th>
+                            <th>Role</th>
+                            <th>Interest</th>
+                            <th>Constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CEO (Altman)</td>
+                            <td>Exec</td>
+                            <td>Product acceleration</td>
+                            <td>Board oversight</td>
+                        </tr>
+                        <tr>
+                            <td>Board</td>
+                            <td>Governance</td>
+                            <td>Safety; risk posture</td>
+                            <td>Public scrutiny; investor pressure</td>
+                        </tr>
+                        <tr>
+                            <td>Microsoft</td>
+                            <td>Partner</td>
+                            <td>Stability + compute ROI</td>
+                            <td>Reputational risk</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- ========================================================= -->
+                <!-- CASE 3: FAMILY CONFLICT -->
+                <!-- ========================================================= -->
+
+                <h3 style="margin-top:3rem;">Case 03 — Family Conflict: Inheritance Dispute</h3>
+
+                <table class="terminal-table">
+                    <thead>
+                        <tr>
+                            <th>Person</th>
+                            <th>Motivation</th>
+                            <th>Fear</th>
+                            <th>Constraint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Eldest Sibling</td>
+                            <td>Fair distribution</td>
+                            <td>Being exploited</td>
+                            <td>Debt + caregiving history</td>
+                        </tr>
+                        <tr>
+                            <td>Younger Sibling</td>
+                            <td>Stability + recognition</td>
+                            <td>Being erased from decisions</td>
+                            <td>Income volatility</td>
+                        </tr>
+                        <tr>
+                            <td>Parent</td>
+                            <td>Harmony</td>
+                            <td>Family split</td>
+                            <td>Estate complexity</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="stat-desc">
+                    Despite scale differences, all conflicts share the same ontology: Actors → Interests → Constraints.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- DEPLOY -->
+        <!-- ========================================================= -->
 
         <section class="content-section" style="text-align: center;">
             <h2 class="section-heading">>> Deploy the Engine</h2>
             <p style="color: var(--text-muted); max-width: 600px; margin: 1rem auto 2rem;">
-                The Concordia Discors module is available for Pilot deployment.
-                Includes full export capabilities (PDF, JSON Graph).
+                The Concordia Engine is available for institutional pilots.
+                Supports JSON export, graph visualization, and multi-agent workflows.
             </p>
             <a href="mailto:deploy@tacitus.me?subject=Concordia%20Pilot" class="btn-accent">Request Access</a>
         </section>
 
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
