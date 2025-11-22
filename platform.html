@@ -245,144 +245,38 @@
         <!-- ========================================================= -->
 
         <section class="content-section">
-            <div class="section-label">04. REAL CONFLICT MODELS</div>
+    <div class="section-label">04. CONFLICT VISUALIZER</div>
 
-            <div class="glass-card wide">
-                <h2>>> Visualizing Conflicts Across Scales</h2>
+    <div class="glass-card wide">
+        <h2>>> Visualizing Conflicts Across Scales</h2>
+        <p>
+            The Concordia Engine converts any conflict — geopolitical, organizational, familial — into a 
+            dynamic <strong>Actor → Interest → Constraint → Relationship</strong> graph. 
+            This visualization breaks down hidden structures, power asymmetries, and opportunities for mediation.
+        </p>
 
-                <p>
-                    The Concordia Engine models conflicts from geopolitics to family disputes.
-                    Every situation is represented as a graph of <strong>Actors → Interests → Constraints → Relationships</strong>.
-                </p>
+        <!-- CASE SELECTOR -->
+        <div class="topic-selector" style="margin: 1.8rem 0;">
+            <button class="btn-ghost small conflict-case-btn active" data-case="geo">Saudi–Iran Détente (2023)</button>
+            <button class="btn-ghost small conflict-case-btn" data-case="board">OpenAI Board Crisis (2023)</button>
+            <button class="btn-ghost small conflict-case-btn" data-case="family">Family Inheritance Dispute</button>
+        </div>
 
-                <!-- ========================================================= -->
-                <!-- CASE 1: GEOPOLITICAL MEDIATION -->
-                <!-- ========================================================= -->
+        <!-- GRAPH PANEL -->
+        <div id="conflict-graph-container" class="graph-container">
+            <svg id="conflict-graph" width="100%" height="480"></svg>
+        </div>
 
-                <h3 style="margin-top:2rem;">Case 01 — Geopolitical Mediation: Saudi–Iran Détente (2023)</h3>
+        <!-- METADATA -->
+        <div class="glass-card" style="margin-top: 2rem;">
+            <h3>>> Node Details</h3>
+            <p id="node-details" class="stat-desc">
+                Hover a node to see its Interests, Constraints, and Role.
+            </p>
+        </div>
+    </div>
+</section>
 
-                <table class="terminal-table" style="margin-top:1rem;">
-                    <thead>
-                        <tr>
-                            <th>Actor</th>
-                            <th>Type</th>
-                            <th>Core Interest</th>
-                            <th>Constraint</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Saudi Arabia</td>
-                            <td>State</td>
-                            <td>Regional security; Yemen de-escalation</td>
-                            <td>U.S. alignment; internal reforms</td>
-                        </tr>
-                        <tr>
-                            <td>Iran</td>
-                            <td>State</td>
-                            <td>Sanctions relief; regional legitimacy</td>
-                            <td>Economic fragility; IRGC factions</td>
-                        </tr>
-                        <tr>
-                            <td>China</td>
-                            <td>Mediator</td>
-                            <td>Stability for energy supply</td>
-                            <td>Non-alignment doctrine</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p class="stat-desc" style="margin-top:1rem;">
-                    The engine converts this into a conflict graph with tension edges and opportunity edges.
-                </p>
-
-                <pre class="code-text">
-{
-  "Saudi": { "interests": ["security", "regional stability"], "edges": { "Iran": "tension", "China": "cooperation" }},
-  "Iran": { "interests": ["sanctions relief"], "edges": { "Saudi": "tension", "China": "cooperation" }},
-  "China": { "interests": ["energy stability"], "edges": { "Saudi": "mediation", "Iran": "mediation" }}
-}
-                </pre>
-
-                <!-- ========================================================= -->
-                <!-- CASE 2: BOARD CONFLICT -->
-                <!-- ========================================================= -->
-
-                <h3 style="margin-top:3rem;">Case 02 — Corporate Board Conflict: OpenAI Governance Crisis (2023)</h3>
-
-                <table class="terminal-table">
-                    <thead>
-                        <tr>
-                            <th>Actor</th>
-                            <th>Role</th>
-                            <th>Interest</th>
-                            <th>Constraint</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>CEO (Altman)</td>
-                            <td>Exec</td>
-                            <td>Product acceleration</td>
-                            <td>Board oversight</td>
-                        </tr>
-                        <tr>
-                            <td>Board</td>
-                            <td>Governance</td>
-                            <td>Safety; risk posture</td>
-                            <td>Public scrutiny; investor pressure</td>
-                        </tr>
-                        <tr>
-                            <td>Microsoft</td>
-                            <td>Partner</td>
-                            <td>Stability + compute ROI</td>
-                            <td>Reputational risk</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- ========================================================= -->
-                <!-- CASE 3: FAMILY CONFLICT -->
-                <!-- ========================================================= -->
-
-                <h3 style="margin-top:3rem;">Case 03 — Family Conflict: Inheritance Dispute</h3>
-
-                <table class="terminal-table">
-                    <thead>
-                        <tr>
-                            <th>Person</th>
-                            <th>Motivation</th>
-                            <th>Fear</th>
-                            <th>Constraint</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Eldest Sibling</td>
-                            <td>Fair distribution</td>
-                            <td>Being exploited</td>
-                            <td>Debt + caregiving history</td>
-                        </tr>
-                        <tr>
-                            <td>Younger Sibling</td>
-                            <td>Stability + recognition</td>
-                            <td>Being erased from decisions</td>
-                            <td>Income volatility</td>
-                        </tr>
-                        <tr>
-                            <td>Parent</td>
-                            <td>Harmony</td>
-                            <td>Family split</td>
-                            <td>Estate complexity</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p class="stat-desc">
-                    Despite scale differences, all conflicts share the same ontology: Actors → Interests → Constraints.
-                </p>
-            </div>
-        </section>
 
         <!-- ========================================================= -->
         <!-- DEPLOY -->
