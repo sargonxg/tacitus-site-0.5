@@ -409,3 +409,47 @@ footer {
     opacity: 0.8;
     text-decoration: underline;
 }
+/* PRISM LAB ENHANCEMENTS */
+
+#prism-argument {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    background: rgba(15, 23, 42, 0.85);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    resize: vertical;
+}
+
+#prism-argument::placeholder {
+    color: var(--text-muted);
+}
+
+.radar-chart-container {
+    position: relative;
+}
+
+.radar-chart-container #prism-radar {
+    position: absolute;
+    inset: 10%;
+    width: 80% !important;
+    height: 80% !important;
+    pointer-events: none;
+}
+
+.value-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    margin: 0 4px 4px 0;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    background: rgba(15, 23, 42, 0.7);
+}
